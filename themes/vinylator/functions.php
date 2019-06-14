@@ -11,7 +11,7 @@ function vinylator_scripts(){
     wp_enqueue_style('vinylator_custom', get_template_directory_uri() . '/style.css', array('vinylator_bootstrap-core'), 'VINYLATOR_VERSION', 'all');
 
     // chargement des scripts 
-    wp_enqueue_script('vinylator_admin_script', get_template_directory_uri() . '/js/script.js', array('jquery'), 'VINYLATOR_VERSION', true);
+    // wp_enqueue_script('vinylator_admin_script', get_template_directory_uri() . '/js/script.js', array('jquery'), 'VINYLATOR_VERSION', true);
 
 }
 
@@ -86,3 +86,78 @@ function wpm_custom_post_type() {
     }
     
     add_action( 'init', 'wpm_custom_post_type', 0 ); 
+
+     function vinylator_infinite_scroll_init() {
+        add_theme_support( 'infinite-scroll', array(
+        'main' => 'content',
+        'render' => 'vinylator_infinite_scroll_render',
+        'footer' => 'wrapper',
+        ) );
+        }
+
+    add_action( 'init', 'vinylator_infinite_scroll_init' ); 
+
+
+
+    
+function add_js_scripts() {
+wp_enqueue_script( 'script', get_template_directory_uri().'/js/script.js', array('jquery'), '1.0', true );
+
+// pass Ajax Url to script.js
+wp_localize_script('script', 'ajaxurl', admin_url( 'admin-ajax.php' ) );
+}
+add_action('wp_enqueue_scripts', 'add_js_scripts');
+
+add_action( 'wp_ajax_mon_action', 'mon_action' );
+add_action( 'wp_ajax_nopriv_mon_action', 'mon_action' );
+
+function mon_action() {
+
+$param = $_POST['param'];
+echo $param;
+
+$args = array(
+'post_type' => 'album',
+'posts_per_page' => 1
+);
+$ajax_query = new WP_Query($args);
+// var_dump($ajax_query);
+if ( $ajax_query->have_posts() ) : while ( $ajax_query->have_posts() ) : $ajax_query->the_post();
+get_template_part( 'album' );
+endwhile;
+endif;
+
+
+die();
+}
+
+
+
+add_action( 'wp_ajax_load_more', 'load_more' );
+add_action( 'wp_ajax_nopriv_load_more', 'load_more' );
+
+function load_more() {
+global $post;
+
+$offset = $_POST['offset'];
+
+$args = array(
+'post_type' =>'album',
+'offset' => $offset
+);
+
+$ajax_query = new WP_Query($args);
+
+if ( $ajax_query->have_posts() ) : while ( $ajax_query->have_posts() ) : $ajax_query->the_post();
+get_template_part( 'album' );
+
+// OU
+include(locate_template('album.php'));
+// si vous avez besoin d'accéder aux variables dans le template
+endwhile;
+endif;
+
+die();
+} 
+
+

@@ -1,8 +1,52 @@
-main {
-  background-color: red;
-}
-
 li {
   list-style: none;
+}
+
+header {
+  background: #222222 !important;
+}
+
+header .navbar {
+  background: #222222 !important;
+  height: 150px;
+}
+
+header .navbar div ul li a {
+  color: white !important;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+header .navbar div ul li a:hover {
+  color: #d09b4a !important;
+}
+
+footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: #222222 !important;
+}
+
+footer p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  min-height: 100px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  font-size: 25px;
+  color: white;
 }
 /*# sourceMappingURL=style.css.map */

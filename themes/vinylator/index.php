@@ -1,20 +1,67 @@
 <?php get_header(); ?>
 
-
-<ul>
 <?php
-$query = new WP_Query( array(
-$size =
-'post_type' => 'album',
-'posts_per_page' => -1, // infini
-'order' => 'ASC', // classé par ordre alphabétique
-'orderby' => 'title', // par titre
-) );
+$query = new WP_Query(array(
+    $size =
+        'post_type' => 'album',
+    'posts_per_page' => 9,
+
+    'order' => 'DESC', // classé par ordre alphabétique
+    'orderby' => 'post_date', // par titre
+));
 ?>
-<?php while ($query->have_posts()) : $query->the_post(); ?>
-<li><?php the_date(); ?><br /><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_post_thumbnail(array(100,100)); ?></a><br />
-<?php   the_title(); the_excerpt(); ?></li>
-<?php endwhile; ?>
-</ul>
+
+
+<?php if (have_posts()) : while (have_posts()) : the_post();
+
+        // Si vous avez besoin d'accéder à $post->ID par exemple
+        global $post;
+
+        get_template_part('album');
+
+        // OU
+        include(locate_template('album.php'));
+    // si vous avez besoin d'accéder aux variables dans le template
+
+    endwhile;
+endif;
+?>
+
+
+
+<?php echo wp_count_posts('album')->publish; ?>
+
+<?php $posts = get_posts('post_type=album&category=5');
+$cat = get_categories();
+$cat = $cat[1];
+echo $cat->cat_name;
+$count = count($posts);
+echo $count;
+?>
+
+<?php $posts = get_posts('post_type=album&category=2');
+$cat = get_categories();
+$cat = $cat[4];
+echo $cat->cat_name;
+$count = count($posts);
+echo $count;
+?>
+
+<?php $posts = get_posts('post_type=album&category=3');
+$cat = get_category('3');
+
+
+echo $cat->count;
+$count = count($posts);
+// echo $count;
+?>
+
+<?php $posts = get_posts('post_type=album&category=4');
+$cat = get_categories();
+$cat = $cat[2];
+echo $cat->cat_name;
+$count = count($posts);
+echo $count;
+?>
 
 <?php get_footer(); ?>
