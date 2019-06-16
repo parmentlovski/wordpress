@@ -34,8 +34,18 @@ add_action('admin_init', 'vinylator_admin_scripts');
 // UTILITAIRES 
 
 // Pour mettre une image en avant
+
 add_theme_support( 'post-thumbnails' ); 
 
+
+add_theme_support( 'custom-logo');
+
+
+ function vinylator_the_custom_logo() {
+    if ( function_exists( 'the_custom_logo' ) ) {
+       the_custom_logo();
+    }
+ }
 // CUSTOM POST TYPE
 
 function wpm_custom_post_type() {
@@ -97,67 +107,38 @@ function wpm_custom_post_type() {
 
     add_action( 'init', 'vinylator_infinite_scroll_init' ); 
 
-
-
-    
-function add_js_scripts() {
-wp_enqueue_script( 'script', get_template_directory_uri().'/js/script.js', array('jquery'), '1.0', true );
-
-// pass Ajax Url to script.js
-wp_localize_script('script', 'ajaxurl', admin_url( 'admin-ajax.php' ) );
-}
-add_action('wp_enqueue_scripts', 'add_js_scripts');
-
-add_action( 'wp_ajax_mon_action', 'mon_action' );
-add_action( 'wp_ajax_nopriv_mon_action', 'mon_action' );
-
-function mon_action() {
-
-$param = $_POST['param'];
-echo $param;
-
-$args = array(
-'post_type' => 'album',
-'posts_per_page' => 1
-);
-$ajax_query = new WP_Query($args);
-// var_dump($ajax_query);
-if ( $ajax_query->have_posts() ) : while ( $ajax_query->have_posts() ) : $ajax_query->the_post();
-get_template_part( 'album' );
-endwhile;
-endif;
-
-
-die();
-}
-
-
-
-add_action( 'wp_ajax_load_more', 'load_more' );
-add_action( 'wp_ajax_nopriv_load_more', 'load_more' );
-
-function load_more() {
-global $post;
-
-$offset = $_POST['offset'];
-
-$args = array(
-'post_type' =>'album',
-'offset' => $offset
-);
-
-$ajax_query = new WP_Query($args);
-
-if ( $ajax_query->have_posts() ) : while ( $ajax_query->have_posts() ) : $ajax_query->the_post();
-get_template_part( 'album' );
-
-// OU
-include(locate_template('album.php'));
-// si vous avez besoin d'accéder aux variables dans le template
-endwhile;
-endif;
-
-die();
-} 
-
-
+    function add_js_scripts() {
+        wp_enqueue_script( 'script', get_template_directory_uri().'/js/script.js', array('jquery'), '1.0', true );
+        
+        // pass Ajax Url to script.js
+        wp_localize_script('script', 'ajaxurl', admin_url( 'admin-ajax.php' ) );
+        }
+        add_action('wp_enqueue_scripts', 'add_js_scripts');
+        
+        
+        add_action( 'wp_ajax_load_more', 'load_more' );
+        add_action( 'wp_ajax_nopriv_load_more', 'load_more' );
+        
+        function load_more() {
+        global $post;
+        
+        $offset = $_POST['offset'];
+        
+        $args = array(
+        'post_type' =>'album',
+        'offset' => $offset
+        );
+        
+        $ajax_query = new WP_Query($args);
+        
+        if ( $ajax_query->have_posts() ) : while ( $ajax_query->have_posts() ) : $ajax_query->the_post();
+      
+        
+        
+        include(locate_template('album.php'));
+        // si vous avez besoin d'accéder aux variables dans le template
+        endwhile;
+        endif;
+        
+        die();
+        } 

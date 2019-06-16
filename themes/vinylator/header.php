@@ -19,8 +19,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>- Vinylator -</title>
-    <link href="https://fonts.googleapis.com/css?family=Poppins:600,600i,700,700i,800,800i,900&display=swap" rel="stylesheet"> 
+    <title>Vinylator : le spécialiste du vinyle </title>
+    <link href="https://fonts.googleapis.com/css?family=Assistant:600,700,800&display=swap" rel="stylesheet"> 
+   
     <?php wp_head(); ?>
 </head>
 
@@ -28,13 +29,17 @@
 
     <header>
 
-        <nav class="navbar navbar-expand-lg navbar-light bg-light container">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light container ">
+        <div class="row">
+             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation" >
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <a class="navbar-brand" href="#"><img src="/app/wp-content/themes/vinylator/img/gramophone.png"></a>
-
-            <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+            <a class="navbar-brand" href="#">
+                <img src="http://localhost:8080/wp-content/uploads/2019/06/gramophone-150x150.png" alt="Le logo du site" width="150" height=150>
+            </a>
+            
+           
+            <div class="collapse navbar-collapse offset-xs-9 offset-sm-9 offset-md-10 offset-lg-0 offset-xl-0" id="navbarTogglerDemo03">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                     <li class="nav-item active">
                         <a class="nav-link" href="#">HOME</a>
@@ -56,7 +61,10 @@
                     </li>
                 </ul>
             </div>
+         
+            </div>
         </nav>
+
 
     </header>
 

@@ -2,24 +2,253 @@ li {
   list-style: none;
 }
 
+li a:hover {
+  text-decoration: none;
+}
+
 header {
-  background: #222222 !important;
+  background: white !important;
 }
 
 header .navbar {
-  background: #222222 !important;
-  height: 150px;
+  background: white !important;
+  min-height: 150px;
+}
+
+header .navbar .navbar-brand img {
+  height: 100px;
+  width: 75px;
+}
+
+header .navbar div ul {
+  padding-bottom: 37px;
+}
+
+header .navbar div ul li {
+  padding-left: 55px;
 }
 
 header .navbar div ul li a {
-  color: white !important;
+  color: #222222 !important;
   font-family: 'Poppins', sans-serif;
   font-weight: bold;
   font-size: 30px;
 }
 
+@media (max-width: 991px) {
+  header .navbar div ul li a {
+    font-size: 15px;
+  }
+}
+
 header .navbar div ul li a:hover {
   color: #d09b4a !important;
+}
+
+@media (max-width: 1000px) {
+  header .row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  header .row {
+    padding-right: 25px;
+    padding-left: 25px;
+  }
+  header .row div {
+    margin-left: 180px;
+  }
+}
+
+#slider {
+  max-height: 425px;
+}
+
+#slider img {
+  height: 450px;
+}
+
+@media (max-width: 576px) {
+  #slider img {
+    height: 250px;
+  }
+}
+
+#music {
+  padding-top: 125px;
+  padding-bottom: 125px;
+}
+
+#music .container .row .categorie {
+  text-align: center;
+}
+
+#music .container .row .categorie .style:hover,
+#music .container .row .categorie .titre:hover {
+  color: #d09b4a;
+}
+
+#music .container .row .categorie .style {
+  font-family: 'Assistant', sans-serif;
+  font-family: 40px;
+  font-weight: bold;
+  color: #222222;
+  text-align: center;
+  margin-bottom: 55px;
+}
+
+#music .container .row .categorie .titre {
+  font-family: 'Assistant', sans-serif;
+  font-size: 25px;
+  font-weight: bold;
+  color: #222222;
+  text-align: center;
+  margin-top: 55px;
+}
+
+#music .container .row .categorie .img-style {
+  height: 185px;
+}
+
+@media (min-width: 769px) {
+  #music .container .row .categorie #img-decalage {
+    margin-left: -18% !important;
+  }
+}
+
+@media (max-width: 768px) {
+  #music .container .row .categorie #img-decalage {
+    margin-left: -5% !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  #music .container .row .categorie:first-child,
+  #music .container .row .categorie:nth-child(2) {
+    margin-top: 40px;
+  }
+  #music .container .row .categorie:nth-child(3),
+  #music .container .row .categorie:last-child {
+    margin-top: 100px;
+    margin-bottom: 40px;
+  }
+}
+
+@media (max-width: 767px) {
+  #music .container .row .categorie {
+    margin-bottom: 50px;
+  }
+  #music .container .row .categorie:last-child {
+    margin-bottom: 0px;
+  }
+}
+
+#form-map {
+  background: #222222;
+}
+
+#form-map .container .row .form form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+#form-map .container .row .form form h3 {
+  font-family: 'Assistant', sans-serif;
+  font-family: 30px;
+  font-weight: bold;
+  color: white;
+  padding-bottom: 40px;
+  padding-left: 5%;
+}
+
+#form-map .container .row .form form input {
+  width: 220px;
+  height: 30px;
+  margin-bottom: 35px;
+  color: #d09b4a;
+  text-align: center;
+}
+
+#form-map .container .row .form form #message {
+  height: 120px;
+}
+
+#form-map .container .row .form form button {
+  background: transparent;
+  border: none;
+  color: white;
+  font-family: 'Assistant', sans-serif;
+  font-weight: bold;
+  font-size: 25px;
+  text-align: left;
+  margin-left: 17%;
+}
+
+@media (max-width: 768px) {
+  #form-map .container .row .form form button {
+    margin-left: 27%;
+  }
+}
+
+#form-map .container .row .form form button:hover {
+  color: #d09b4a;
+}
+
+@media (max-width: 768px) {
+  #form-map .container .row .form {
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
+#form-map .container .row .map {
+  background-image: url("img/maps.jpg");
+}
+
+@media (min-width: 577px) and (max-width: 768px) {
+  #form-map .container .row .map {
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+    height: 400px;
+  }
+}
+
+@media (max-width: 576px) {
+  #form-map .container .row .map {
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+    height: 200px;
+  }
 }
 
 footer {
@@ -31,9 +260,76 @@ footer {
       -ms-flex-direction: column;
           flex-direction: column;
   background-color: #222222 !important;
+  padding-top: 30px;
 }
 
-footer p {
+footer .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+footer .container nav ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin-left: -10%;
+}
+
+footer .container nav ul li a {
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+@media (max-width: 576px) {
+  footer .container nav ul li a {
+    font-size: 12px;
+  }
+}
+
+footer .container nav ul li a span {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+footer .container nav ul li a:hover {
+  color: #d09b4a;
+}
+
+footer .container nav ul li a:hover span {
+  color: white;
+  cursor: default;
+}
+
+@media (max-width: 767px) {
+  footer .container nav ul {
+    margin-left: -50px;
+  }
+}
+
+footer .container img {
+  width: 40px;
+  height: 60px;
+  margin-left: 8%;
+}
+
+@media (max-width: 767px) {
+  footer .container img {
+    display: none;
+  }
+}
+
+footer .container p {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -48,5 +344,12 @@ footer p {
   font-weight: bold;
   font-size: 25px;
   color: white;
+}
+
+@media (max-width: 767px) {
+  footer .container p {
+    font-size: 15px;
+    margin-left: -350px;
+  }
 }
 /*# sourceMappingURL=style.css.map */
