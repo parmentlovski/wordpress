@@ -22,6 +22,14 @@ header {
 
         div {
 
+            button {
+                border: none;
+            }
+
+            .navbar-toggler {
+                color: transparent;
+            }
+
             ul {
                 padding-bottom: 37px;
 
@@ -73,10 +81,13 @@ header {
 // HOME 
 
 #slider {
-    max-height: 425px;
 
     img {
-        height: 450px;
+        height: 500px;
+        
+        @media (min-width: 991px){
+            height: 77vh;
+        } 
 
         @media (max-width: 576px) {
             height: 250px;
@@ -85,20 +96,14 @@ header {
 }
 
 #music {
-    padding-top: 125px;
-    padding-bottom: 125px;
+    padding-top: 140px;
+    padding-bottom: 140px;
 
     .container {
         .row {
 
             .categorie {
                 text-align: center;
-
-                .style:hover,
-                .titre:hover {
-                    color: #d09b4a;
-
-                }
 
                 .style {
                     font-family: 'Assistant', sans-serif;
@@ -120,6 +125,14 @@ header {
 
                 .img-style {
                     height: 185px;
+
+                    @media (max-width: 576px) {
+                        height: 120px;
+                    }
+                }
+
+                .img-style:hover {
+                    opacity: .5;
                 }
 
                 @media (min-width: 769px) {
@@ -144,13 +157,13 @@ header {
 
                 .categorie:first-child,
                 .categorie:nth-child(2) {
-                    margin-top: 40px;
+                    margin-top: 10px;
                 }
 
                 .categorie:nth-child(3),
                 .categorie:last-child {
                     margin-top: 100px;
-                    margin-bottom: 40px;
+                    margin-bottom: 20px;
                 }
             }
 
@@ -165,6 +178,11 @@ header {
                 }
             }
         }
+    }
+
+    @media (max-width: 991px) {
+        padding-top: 70px;
+        padding-bottom: 70px;
     }
 }
 
@@ -257,14 +275,14 @@ footer {
     display: flex;
     flex-direction: column;
     background-color: #222222 !important;
-    padding-top: 30px;
+    padding-top: 42px;
 
     .container { 
         display: flex;
         flex-direction: row;
 
         nav { 
-
+            
             ul { 
                 display: flex;
                 flex-direction: row;
@@ -317,7 +335,8 @@ footer {
             display: flex;
             align-items: flex-end;
             justify-content: flex-end;
-            min-height: 100px;
+            margin-top: 60px;
+            margin-bottom: 30px;
             font-family: 'Poppins', sans-serif;
             font-weight: bold;
             font-size: 25px;

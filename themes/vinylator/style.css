@@ -20,6 +20,14 @@ header .navbar .navbar-brand img {
   width: 75px;
 }
 
+header .navbar div button {
+  border: none;
+}
+
+header .navbar div .navbar-toggler {
+  color: transparent;
+}
+
 header .navbar div ul {
   padding-bottom: 37px;
 }
@@ -71,12 +79,14 @@ header .navbar div ul li a:hover {
   }
 }
 
-#slider {
-  max-height: 425px;
+#slider img {
+  height: 500px;
 }
 
-#slider img {
-  height: 450px;
+@media (min-width: 991px) {
+  #slider img {
+    height: 77vh;
+  }
 }
 
 @media (max-width: 576px) {
@@ -86,17 +96,12 @@ header .navbar div ul li a:hover {
 }
 
 #music {
-  padding-top: 125px;
-  padding-bottom: 125px;
+  padding-top: 140px;
+  padding-bottom: 140px;
 }
 
 #music .container .row .categorie {
   text-align: center;
-}
-
-#music .container .row .categorie .style:hover,
-#music .container .row .categorie .titre:hover {
-  color: #d09b4a;
 }
 
 #music .container .row .categorie .style {
@@ -121,6 +126,16 @@ header .navbar div ul li a:hover {
   height: 185px;
 }
 
+@media (max-width: 576px) {
+  #music .container .row .categorie .img-style {
+    height: 120px;
+  }
+}
+
+#music .container .row .categorie .img-style:hover {
+  opacity: .5;
+}
+
 @media (min-width: 769px) {
   #music .container .row .categorie #img-decalage {
     margin-left: -18% !important;
@@ -136,12 +151,12 @@ header .navbar div ul li a:hover {
 @media (min-width: 768px) and (max-width: 991px) {
   #music .container .row .categorie:first-child,
   #music .container .row .categorie:nth-child(2) {
-    margin-top: 40px;
+    margin-top: 10px;
   }
   #music .container .row .categorie:nth-child(3),
   #music .container .row .categorie:last-child {
     margin-top: 100px;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
   }
 }
 
@@ -151,6 +166,13 @@ header .navbar div ul li a:hover {
   }
   #music .container .row .categorie:last-child {
     margin-bottom: 0px;
+  }
+}
+
+@media (max-width: 991px) {
+  #music {
+    padding-top: 70px;
+    padding-bottom: 70px;
   }
 }
 
@@ -260,7 +282,7 @@ footer {
       -ms-flex-direction: column;
           flex-direction: column;
   background-color: #222222 !important;
-  padding-top: 30px;
+  padding-top: 42px;
 }
 
 footer .container {
@@ -339,7 +361,8 @@ footer .container p {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
-  min-height: 100px;
+  margin-top: 60px;
+  margin-bottom: 30px;
   font-family: 'Poppins', sans-serif;
   font-weight: bold;
   font-size: 25px;
