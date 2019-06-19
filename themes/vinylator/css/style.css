@@ -7,11 +7,12 @@ li a:hover {
 }
 
 header {
-  background: white !important;
+  background: #222 !important;
+  border-bottom: 4px solid white;
 }
 
 header .navbar {
-  background: white !important;
+  background: #222 !important;
   min-height: 150px;
 }
 
@@ -37,7 +38,7 @@ header .navbar div ul li {
 }
 
 header .navbar div ul li a {
-  color: #222222 !important;
+  color: #fff !important;
   font-family: 'Poppins', sans-serif;
   font-weight: bold;
   font-size: 30px;
@@ -85,7 +86,7 @@ header .navbar div ul li a:hover {
 
 @media (min-width: 991px) {
   #slider img {
-    height: 77vh;
+    height: 72vh;
   }
 }
 
@@ -95,9 +96,16 @@ header .navbar div ul li a:hover {
   }
 }
 
+#slider .carousel-control-next-icon,
+#slider .carousel-control-prev-icon {
+  width: 40px;
+  height: 100px;
+}
+
 #music {
   padding-top: 140px;
   padding-bottom: 140px;
+  background: #eee;
 }
 
 #music .container .row .categorie {
@@ -208,8 +216,9 @@ header .navbar div ul li a:hover {
   width: 220px;
   height: 30px;
   margin-bottom: 35px;
-  color: #d09b4a;
+  color: #222;
   text-align: center;
+  background-color: #eeeeee;
 }
 
 #form-map .container .row .form form #message {
@@ -252,7 +261,7 @@ header .navbar div ul li a:hover {
 }
 
 #form-map .container .row .map {
-  background-image: url("img/maps.jpg");
+  background-image: url("http://localhost:8080/wp-content/uploads/2019/06/maps.jpg");
 }
 
 @media (min-width: 577px) and (max-width: 768px) {
@@ -271,6 +280,19 @@ header .navbar div ul li a:hover {
             order: 1;
     height: 200px;
   }
+}
+
+#title_actus {
+  padding-top: 85px;
+  padding-bottom: 85px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  font-size: 60px;
+  text-align: center;
+}
+
+#category h2 {
+  text-align: center;
 }
 
 footer {

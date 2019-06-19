@@ -4,7 +4,7 @@
 
 
 
-<?php include(locate_template('album.php')); ?>
+<?php // include(locate_template('contenu.php')); ?>
 
 
 

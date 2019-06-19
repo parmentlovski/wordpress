@@ -1,16 +1,22 @@
+// règles générales
+
 li {
     list-style: none;
-    
+
     a:hover {
         text-decoration: none;
     }
 }
 
+
+// HEADER.PHP
+
 header {
-    background: white !important;
+    background: #222 !important; // background en dehors du container
+    border-bottom: 4px solid white;
 
     .navbar {
-        background: white !important;
+        background: #222 !important;
         min-height: 150px;
 
         .navbar-brand {
@@ -23,7 +29,7 @@ header {
         div {
 
             button {
-                border: none;
+                border: none; // pas de bord pour le burger
             }
 
             .navbar-toggler {
@@ -37,7 +43,7 @@ header {
                     padding-left: 55px;
 
                     a {
-                        color: #222222 !important;
+                        color: #fff !important;
                         font-family: 'Poppins', sans-serif;
                         font-weight: bold;
                         font-size: 30px;
@@ -59,7 +65,7 @@ header {
     @media (max-width: 1000px) {
         .row {
             display: flex;
-            flex-direction: row-reverse;
+            flex-direction: row-reverse; // inversion entre le logo et le burger
             justify-content: space-between;
             width: 100%;
         }
@@ -78,26 +84,36 @@ header {
 }
 
 
-// HOME 
+// HOME.PHP
 
+//partie slider 
 #slider {
 
     img {
         height: 500px;
-        
-        @media (min-width: 991px){
-            height: 77vh;
-        } 
+
+        @media (min-width: 991px) {
+            height: 72vh;
+        }
 
         @media (max-width: 576px) {
             height: 250px;
         }
     }
+
+    .carousel-control-next-icon,
+    .carousel-control-prev-icon {
+        width: 40px;
+        height: 100px;
+    }
 }
+
+// partie musique choix styles
 
 #music {
     padding-top: 140px;
     padding-bottom: 140px;
+    background: #eee;
 
     .container {
         .row {
@@ -157,24 +173,24 @@ header {
 
                 .categorie:first-child,
                 .categorie:nth-child(2) {
-                    margin-top: 10px;
+                    margin-top: 10px; // écart entre le header et la partie style musique 
                 }
 
                 .categorie:nth-child(3),
                 .categorie:last-child {
-                    margin-top: 100px;
+                    margin-top: 100px; // écart entre le header et la partie style musique 
                     margin-bottom: 20px;
                 }
             }
 
-            
+
             @media (max-width: 767px) {
                 .categorie {
-                    margin-bottom: 50px;
+                    margin-bottom: 50px; // écart entre le header et la partie style musique
                 }
 
                 .categorie:last-child {
-                    margin-bottom: 0px;
+                    margin-bottom: 0px; // écart entre le header et la partie style musique 
                 }
             }
         }
@@ -186,6 +202,9 @@ header {
     }
 }
 
+
+
+// partie formulaire + map
 #form-map {
     background: #222222;
 
@@ -215,8 +234,9 @@ header {
                         width: 220px;
                         height: 30px;
                         margin-bottom: 35px;
-                        color: #d09b4a;
+                        color: #222;
                         text-align: center;
+                        background-color: #eeeeee;
                     }
 
                     #message {
@@ -244,7 +264,7 @@ header {
                 }
 
                 @media (max-width: 768px) {
-                    order: 2;
+                    order: 2; // inversion entre le formulaire et la map
                     display: flex;
                     justify-content: center;
                 }
@@ -252,7 +272,7 @@ header {
             }
 
             .map {
-                background-image: url('img/maps.jpg');
+                background-image: url('http://localhost:8080/wp-content/uploads/2019/06/maps.jpg');
 
                 @media (min-width: 577px) and (max-width: 768px) {
                     order: 1;
@@ -268,8 +288,27 @@ header {
     }
 }
 
+// ACTUS.PHP
 
-// FOOTER 
+#title_actus {
+    padding-top: 85px;
+    padding-bottom: 85px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    font-size: 60px;
+    text-align: center;
+}
+
+
+// CATEGORY.PHP 
+
+#category {
+    h2 {
+        text-align: center;
+    }
+}
+
+// FOOTER.PHP
 
 footer {
     display: flex;
@@ -277,13 +316,15 @@ footer {
     background-color: #222222 !important;
     padding-top: 42px;
 
-    .container { 
+
+    .container {
         display: flex;
         flex-direction: row;
 
-        nav { 
-            
-            ul { 
+        // .row  { 
+        nav {
+
+            ul {
                 display: flex;
                 flex-direction: row;
                 margin-left: -10%;
@@ -298,7 +339,7 @@ footer {
                         @media (max-width: 576px) {
                             font-size: 12px;
                         }
-                        
+
                         span {
                             margin-right: 10px;
                             margin-left: 10px;
@@ -306,7 +347,7 @@ footer {
                     }
 
                     a:hover {
-                        color:#d09b4a; 
+                        color: #d09b4a;
 
                         span {
                             color: white;
@@ -328,7 +369,7 @@ footer {
 
             @media (max-width: 767px) {
                 display: none;
-            } 
+            }
         }
 
         p {
@@ -341,11 +382,13 @@ footer {
             font-weight: bold;
             font-size: 25px;
             color: white;
-    
+
             @media (max-width: 767px) {
                 font-size: 15px;
-                margin-left: -350px;
+                margin-left: -350px; // décalage du copyright 
             }
         }
+
+        //}
     }
 }
