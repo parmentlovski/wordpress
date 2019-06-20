@@ -272,8 +272,11 @@ header {
             }
 
             .map {
-                background-image: url('http://localhost:8080/wp-content/uploads/2019/06/maps.jpg');
-
+                // background-image: url('http://localhost:8080/wp-content/uploads/2019/06/maps.jpg');
+                #map {
+                    /* la carte DOIT avoir une hauteur sinon elle n'apparaît pas */
+                    height: 400px;
+                    }
                 @media (min-width: 577px) and (max-width: 768px) {
                     order: 1;
                     height: 400px;
