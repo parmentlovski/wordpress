@@ -20,8 +20,13 @@ jQuery.post(
 var offset = 9;
 
 jQuery(window).scroll(function () {
+    // console.log('aaaaa');
+    // console.log(jQuery(document).height());
+    // console.log(jQuery(window).height())
+// console.log('WINDOWS SCROLL TOP --> '+jQuery(window).scrollTop());
+// console.log('DOCUMENT HEIGHT --> '+ (jQuery(document).height() - jQuery(window).height())); 
     if (jQuery(window).scrollTop() == jQuery(document).height() - jQuery(window).height()) {
-        console.log('OUAI');
+        
 
         jQuery.post(
             ajaxurl,

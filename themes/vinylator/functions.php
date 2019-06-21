@@ -10,9 +10,8 @@ function vinylator_scripts()
     wp_enqueue_style('vinylator_custom', get_template_directory_uri() . '/css/style.css', array(), 'VINYLATOR_VERSION', 'all');
 
     // chargement des scripts 
-    wp_enqueue_script('vinylator_admin_script', get_template_directory_uri() . '/js/map.js', array('jquery'), 'VINYLE_VERSION', true);
     wp_enqueue_script('vinylator_admin_script', get_template_directory_uri() . '/js/animation.js', array('jquery'), 'VINYLATOR_VERSION', true);
-    wp_enqueue_script('vinylator_admin_script', get_template_directory_uri() . '/js/script.js', array('jquery'), 'VINYLATOR_VERSION', true);
+    // wp_enqueue_script('vinylator_admin_script', get_template_directory_uri() . '/js/script.js', array('jquery'), 'VINYLATOR_VERSION', true);
 }
 add_action('wp_enqueue_scripts', 'vinylator_scripts');
 
@@ -221,9 +220,7 @@ function save_metabox($post_id)
 }
 
 add_action('save_post', 'save_metabox');
-
-
-// MAP ?>
+?>
 
 
 <?php
@@ -278,9 +275,7 @@ function load_more()
 {
     global $ajax_query;
 
-
     $offset = $_POST['offset'];
-
     $args = array(
         'post_type' => 'post',
         'posts_per_page' => 3,
@@ -326,9 +321,9 @@ function mon_action_album()
 {
     //  $param = $_POST['param'];
     //  echo $param;
-   
+
     $url = $_SERVER["HTTP_REFERER"];
-    $url = explode("/",$url);
+    $url = explode("/", $url);
 
     $args = array(
         'post_type' => 'album', // articles 
@@ -336,7 +331,7 @@ function mon_action_album()
         'category_name' => $url[4],
         'order' => 'DESC', // classé par ordre alphabétique 
         'orderby' => 'date_post', // par titre 
-    ); 
+    );
 
     $ajax_query = new WP_Query($args);
 
@@ -359,12 +354,13 @@ add_action('wp_ajax_nopriv_mon_action_album', 'mon_action_album');
 // + 3 nouveaux posts
 
 function load_more_album()
+
 {
     global $ajax_query;
     $offset = $_POST['offset'];
 
     $url = $_SERVER["HTTP_REFERER"];
-    $url = explode("/",$url);
+    $url = explode("/", $url);
 
     $args = array(
         'post_type' => 'album',
@@ -397,24 +393,26 @@ add_action('wp_ajax_nopriv_load_more_album', 'load_more_album');
 <?php
 function adress_setup_menu()
 {
-add_menu_page('Adress Page', 'Adress', 'manage_options', 'adress_option', 'adress_init');
+    add_menu_page('Adress Page', 'Adress', 'manage_options', 'adress_option', 'adress_init');
 }
 function adress_init()
 {
-echo '<h1>Salut tous le monde!</h1> <form id="form_reply" method="post">
+    echo '<h1>Salut tous le monde!</h1> <form id="form_reply" method="post">
 
 <input type="text" id="new-value" name="new-value">
 <button type="submit" id="submit-position">envoyer</button>
 <span id="resultat"></span>
 </form>';
 
-global $wpdb;
-
-$wpdb->update(
-$wpdb->prefix . 'options',
-array('option_value' => $_POST['new-value']),
-array('option_name' => 'adress_client')
-);
+    if (!$_POST['new-value'] == '') {
+        global $wpdb;
+        $wpdb->update(
+            $wpdb->prefix . 'options',
+            array('option_value' => $_POST['new-value']),
+            array('option_name' => 'adress_client')
+        );
+    }
+    
 }
 add_action('admin_menu', 'adress_setup_menu');
 

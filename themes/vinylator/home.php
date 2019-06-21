@@ -20,6 +20,7 @@ $query = new WP_Query(array(
 ));
 ?>
 
+
 <section id="slider">
     <!-- DEBUT SLIDER -->
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
@@ -67,7 +68,6 @@ $query = new WP_Query(array(
         </a>
     </div>
 </section> <!-- FIN SLIDER -->
-
 
 <section id="music" class="container-fluid">
     <!-- DEBUT CHOIX MUSIQUES -->
@@ -118,7 +118,6 @@ $query = new WP_Query(array(
     </div> <!-- fin container -->
 </section><!-- FIN CHOIX MUSIQUES -->
 
-
 <section id="form-map" class="mr-0 pr-0">
     <!-- DEBUT FORMULAIRE/MAP -->
     <div class="container mr-0">
@@ -144,16 +143,14 @@ $query = new WP_Query(array(
 
 <?php
 global $wpdb;
-
 // Interrogation de la base de données
 $resultats = $wpdb->get_results("SELECT * FROM {$wpdb->prefix}options WHERE option_name = 'adress_client'");
 // Parcours des resultats obtenus
 foreach ($resultats as $post) {
-    echo $post->option_value;
-    echo '<br/>';
+    // echo $post->option_value;
+    // echo '<br/>';
 }
 ?>
-
 
 <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js" integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw==" crossorigin=""></script>
 <script>
@@ -168,7 +165,6 @@ foreach ($resultats as $post) {
     // // btnX.addEventListener("click"Goto());
 
     function Goto(adress) {
-
         var xmlhttp = new XMLHttpRequest();
         var url = "https://nominatim.openstreetmap.org/search?format=json&limit=3&q=" + adress;
         xmlhttp.onreadystatechange = function() {
@@ -203,8 +199,6 @@ foreach ($resultats as $post) {
             minZoom: 1,
             maxZoom: 20
         }).addTo(macarte);
-
-
     }
     window.onload = function() {
         // Fonction d'initialisation qui s'exécute lorsque le DOM est chargé
@@ -212,7 +206,5 @@ foreach ($resultats as $post) {
     };
     Goto(adress_client);
     // console.log(msg);
-
-
 </script>
 <?php get_footer(); ?>
