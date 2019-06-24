@@ -5,26 +5,39 @@ define('VINYLATOR_VERSION', '1.0.0');
 
 function vinylator_scripts()
 {
+
     // chargement des styles 
-    // wp_enqueue_style('vinylator_bootstrap-core', get_template_directory_uri() . '/css/bootstrap.min.css', array(), 'VINYLATOR_VERSION', 'all');
-    wp_enqueue_style('vinylator_custom', get_template_directory_uri() . '/css/style.css', array(), 'VINYLATOR_VERSION', 'all');
+    wp_enqueue_style('vinylator_font', 'https://fonts.googleapis.com/css?family=Assistant:300,600,700,800&display=swap');
+    wp_enqueue_style('leaflet_styles', 'https://unpkg.com/leaflet@1.3.1/dist/leaflet.css');
+    wp_enqueue_style('vinylator_bootstrap-core', get_template_directory_uri() . '/css/bootstrap.min.css', array(), 'VINYLATOR_VERSION', 'all');
+    wp_enqueue_style('vinylator_custom', get_template_directory_uri() . '/style.css', array(), 'VINYLATOR_VERSION', 'all');
 
     // chargement des scripts 
     wp_enqueue_script('vinylator_admin_script', get_template_directory_uri() . '/js/animation.js', array('jquery'), 'VINYLATOR_VERSION', true);
-    // wp_enqueue_script('vinylator_admin_script', get_template_directory_uri() . '/js/script.js', array('jquery'), 'VINYLATOR_VERSION', true);
+    wp_enqueue_script('vinylator-map', get_template_directory_uri() . '/js/map.js', array('jquery'), 'VINYLATOR_VERSION', true);
+    wp_enqueue_script('script', get_template_directory_uri() . '/js/script.js', array('jquery'), 'VINYLATOR_VERSION', true);
+
+    // wp_enqueue_script('bootstrap-css', 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css');
+    wp_enqueue_script('bootstrap-js', 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js');
+    wp_enqueue_script('leaflet', 'https://unpkg.com/leaflet@1.3.1/dist/leaflet.js');
+
+
+    // pass Ajax Url to script.js
+    wp_localize_script('script', 'ajaxurl', admin_url('admin-ajax.php'));
 }
 add_action('wp_enqueue_scripts', 'vinylator_scripts');
 
 
 // chargement dans l'admin 
 
-function vinylator_admin_scripts()
-{
 
-    //chargement des styles 
-    wp_enqueue_style('bootstrap-adm-core', get_template_directory_uri() . '/css/bootstrap.min.css', array(), 'VINYLATOR_VERSION');
-}
-add_action('admin_init', 'vinylator_admin_scripts');
+// function vinylator_admin_scripts()
+// {
+
+//     //chargement des styles 
+//     // wp_enqueue_style('bootstrap-adm-core', get_template_directory_uri() . '/css/bootstrap.min.css', array(), 'VINYLATOR_VERSION');
+// }
+// add_action('admin_init', 'vinylator_admin_scripts');
 
 
 
@@ -33,7 +46,6 @@ add_action('admin_init', 'vinylator_admin_scripts');
 
 // Pour mettre une image en avant
 
-add_theme_support('post-thumbnails');
 
 function register_my_menu()
 {
@@ -97,11 +109,14 @@ function wpm_custom_post_type()
 
     );
     digwp_disable_gutenberg(true, 'album');
+    add_filter('use_block_editor_for_post_type', 'digwp_disable_gutenberg', 10, 2);
 
     // On enregistre notre custom post type qu'on nomme ici "serietv" et ses arguments
     register_post_type('album', $args);
 }
 add_action('init', 'wpm_custom_post_type', 0);
+
+add_theme_support('post-thumbnails');
 
 function digwp_disable_gutenberg($is_enabled, $post_type)
 {
@@ -228,15 +243,6 @@ add_action('save_post', 'save_metabox');
 
 // Ajouts des scripts en rapport avec le scroll 
 
-function add_js_scripts()
-{
-    wp_enqueue_script('script', get_template_directory_uri() . '/js/script.js', array('jquery'), '1.0', true);
-    // pass Ajax Url to script.js
-    wp_localize_script('script', 'ajaxurl', admin_url('admin-ajax.php'));
-}
-add_action('wp_enqueue_scripts', 'add_js_scripts');
-
-
 // affichage des posts 
 
 function mon_action()
@@ -254,12 +260,16 @@ function mon_action()
 
     if ($ajax_query->have_posts()) :
         while ($ajax_query->have_posts()) : $ajax_query->the_post(); ?>
-            <article class="col-4">
-                <?php the_modified_date(); ?><br /><a href="<?php the_permalink(); ?>" rel="bookmark">
-                    <?php the_post_thumbnail(array(100, 100)); ?></a>
-                <?php the_category();
-                the_title();
-                the_excerpt(); ?>
+           <article class="col-xs-6 col-sm-6 col-md-6 col-lg-4 col-xl-4">
+            <p class="post-title"><?php the_title(); ?></p>
+                <div class="post-content">
+                    <?php the_modified_date(); ?><br /><a href="<?php the_permalink(); ?>" rel="bookmark">
+                        <?php the_post_thumbnail(array(100, 100)); ?></a>
+                    <?php the_category(); ?>
+                </div>
+                <div class="post-out">
+                    <p class="post-excerpt"><?php the_excerpt(); ?></p>
+                </div>
             </article>
         <?php endwhile;
 endif;
@@ -288,12 +298,16 @@ function load_more()
 
     if ($ajax_query->have_posts()) :
         while ($ajax_query->have_posts()) : $ajax_query->the_post(); ?>
-            <article class="col-4">
-                <?php the_modified_date(); ?><br /><a href="<?php the_permalink(); ?>" rel="bookmark">
-                    <?php the_post_thumbnail(array(100, 100)); ?></a>
-                <?php the_category();
-                the_title();
-                the_excerpt(); ?>
+            <article class="col-xs-6 col-sm-6 col-md-6 col-lg-4 col-xl-4">
+            <p class="post-title"><?php the_title(); ?></p>
+                <div class="post-content">
+                    <?php the_modified_date(); ?><br /><a href="<?php the_permalink(); ?>" rel="bookmark">
+                        <?php the_post_thumbnail(array(100, 100)); ?></a>
+                    <?php the_category(); ?>
+                </div>
+                <div class="post-out">
+                    <p class="post-excerpt"><?php the_excerpt(); ?></p>
+                </div>
             </article>
         <?php endwhile;
 endif;
@@ -305,15 +319,6 @@ add_action('wp_ajax_nopriv_load_more', 'load_more');
 
 <?php
 // ------------------------------  SCROLL ALBUM ---------------------------------------//
-
-function add_js_scripts_album()
-{
-    wp_enqueue_script('script', get_template_directory_uri() . '/js/script.js', array('jquery'), '1.0', true);
-    // pass Ajax Url to script.js
-    wp_localize_script('script', 'ajaxurl', admin_url('admin-ajax.php'));
-}
-add_action('wp_enqueue_scripts', 'add_js_scripts_album');
-
 
 // affichage des posts 
 
@@ -337,12 +342,16 @@ function mon_action_album()
 
     if ($ajax_query->have_posts()) :
         while ($ajax_query->have_posts()) : $ajax_query->the_post(); ?>
-            <article class="col-4">
-                <?php the_modified_date(); ?><br /><a href="<?php the_permalink(); ?>" rel="bookmark">
-                    <?php the_post_thumbnail(array(100, 100)); ?></a>
-                <?php the_category();
-                the_title();
-                the_excerpt(); ?>
+            <article class="col-xs-6 col-sm-6 col-md-6 col-lg-4 col-xl-4">
+            <p class="album-title"><?php the_title(); ?></p>
+                <div class="album-content">
+                    <?php the_modified_date(); ?><br /><a href="<?php the_permalink(); ?>" rel="bookmark">
+                        <?php the_post_thumbnail(array(100, 100)); ?></a>
+                    <?php the_category(); ?>
+                </div>
+                <div class="album-out">
+                    <p class="album-excerpt"><?php the_excerpt(); ?></p>
+                </div>
             </article>
         <?php endwhile;
 endif;
@@ -375,12 +384,16 @@ function load_more_album()
 
     if ($ajax_query->have_posts()) :
         while ($ajax_query->have_posts()) : $ajax_query->the_post(); ?>
-            <article class="col-4">
-                <?php the_modified_date(); ?><br /><a href="<?php the_permalink(); ?>" rel="bookmark">
-                    <?php the_post_thumbnail(array(100, 100)); ?></a>
-                <?php the_category();
-                the_title();
-                the_excerpt(); ?>
+            <article class="col-xs-6 col-sm-6 col-md-6 col-lg-4 col-xl-4">
+            <p class="album-title"><?php the_title(); ?></p>
+                <div class="album-content">
+                    <?php the_modified_date(); ?><br /><a href="<?php the_permalink(); ?>" rel="bookmark">
+                        <?php the_post_thumbnail(array(100, 100)); ?></a>
+                    <?php the_category(); ?>
+                </div>
+                <div class="album-out">
+                    <p class="album-excerpt"><?php the_excerpt(); ?></p>
+                </div>
             </article>
         <?php endwhile;
 endif;
@@ -391,6 +404,10 @@ add_action('wp_ajax_nopriv_load_more_album', 'load_more_album');
 ?>
 
 <?php
+
+
+// --------------------------------  MAP ---------------------------------------//
+
 function adress_setup_menu()
 {
     add_menu_page('Adress Page', 'Adress', 'manage_options', 'adress_option', 'adress_init');
@@ -412,8 +429,9 @@ function adress_init()
             array('option_name' => 'adress_client')
         );
     }
-    
 }
 add_action('admin_menu', 'adress_setup_menu');
 
-?>
+
+
+

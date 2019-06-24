@@ -2,7 +2,7 @@
 /**
  * The header for our theme
  *
- * This is the template that displays all of the <head> section and everything up until <div id="content">
+ * 
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
@@ -20,10 +20,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Vinylator : le spécialiste du vinyle </title>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ==" crossorigin="" />
-    <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.2.0/mapbox-gl-geocoder.css' type='text/css' />
-    <link href="https://fonts.googleapis.com/css?family=Assistant:600,700,800&display=swap" rel="stylesheet">
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
 
     <?php wp_head(); ?>
 </head>
@@ -37,9 +33,10 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light container ">
             <div class="row">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon">
+                    </span>ƒ
                 </button>
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="http://localhost:8080/">
                     <?php $custom_logo_id = get_theme_mod('custom_logo');
                     $custom_logo_url = wp_get_attachment_image_url($custom_logo_id, 'full');
                     echo '<img src="http://localhost:8080/wp-content/uploads/2019/06/gramophone-150x150.png"' . esc_url($custom_logo_url) . '" alt="Le logo du site" width="150" height=150>'; ?>
@@ -67,7 +64,6 @@
                         </li>
                     </ul>
                 </div>
-
             </div>
         </nav>
     </header>

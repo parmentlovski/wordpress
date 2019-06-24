@@ -1,0 +1,757 @@
+// règles générales
+
+li {
+    list-style: none;
+
+    a:hover {
+        text-decoration: none;
+    }
+}
+
+h1 {
+    font-family: 'Assistant', sans-serif;
+    font-size: 45px;
+    font-weight: bold;
+    color: #222;
+    padding-bottom: 140px;
+    text-align: center;
+
+    .small_underline {
+        border: 2px solid #222;
+        width: 15%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 10px
+    }
+}
+
+h3 {
+    font-family: 'Assistant', sans-serif;
+    font-size: 28px;
+    font-weight: bold;
+    color: white;
+    padding-bottom: 60px;
+}
+
+// HEADER.PHP
+
+header {
+    background: #222 !important; // background en dehors du container
+    border-bottom: 4px solid white;
+
+    .navbar {
+        background: #222 !important;
+        min-height: 150px;
+
+        .navbar-brand {
+            img {
+                height: 100px;
+                width: 75px;
+            }
+        }
+
+        div {
+
+            button {
+                border: none; // pas de bord pour le burger
+            }
+
+            .navbar-toggler {
+                color: transparent;
+            }
+
+            ul {
+                padding-bottom: 37px;
+
+                li {
+                    padding-left: 55px;
+
+                    a {
+                        color: #fff !important;
+                        font-family: 'Poppins', sans-serif;
+                        font-weight: bold;
+                        font-size: 30px;
+
+                        @media (max-width: 991px) {
+                            font-size: 15px;
+                        }
+                    }
+
+                    a:hover {
+                        color: #d09b4a !important;
+                    }
+                }
+            }
+        }
+    }
+
+
+    @media (max-width: 1000px) {
+        .row {
+            display: flex;
+            flex-direction: row-reverse; // inversion entre le logo et le burger
+            justify-content: space-between;
+            width: 100%;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .row {
+            padding-right: 25px;
+            padding-left: 25px;
+
+            div {
+                margin-left: 180px;
+            }
+        }
+    }
+}
+
+
+// HOME.PHP
+
+//partie slider 
+
+#slider {
+
+    h2 {
+        font-family: 'Assistant', sans-serif;
+        font-weight: bold;
+        font-size: 50px;
+        position: absolute;
+        bottom: 420px;
+        left: 27%;
+
+        @media (min-width: 577px) and (max-width: 990px) {
+            font-size: 40px;
+            position: absolute;
+            bottom: 350px;
+            left: 23%;
+        }
+    }
+
+    p {
+        font-family: 'Assistant', sans-serif;
+        font-weight: bold;
+        font-size: 40px;
+        position: absolute;
+        bottom: 100px;
+        left: 38%;
+
+        @media (min-width: 577px) and (max-width: 990px) {
+            font-size: 30px;
+            position: absolute;
+            bottom: 100px;
+            left: 40%;
+        }
+    }
+
+    img {
+        height: 500px;
+
+        @media (min-width: 991px) {
+            height: 81vh; // 72vh 
+        }
+
+        @media (min-width: 577px) and (max-width: 767px) {
+            height: 350px;
+        }
+
+        @media (max-width: 576px) {
+            height: 250px;
+        }
+    }
+
+    .carousel-control-next-icon,
+    .carousel-control-prev-icon {
+        width: 40px;
+        height: 100px;
+    }
+}
+
+// partie musique choix styles
+
+#music {
+    padding-top: 140px;
+    padding-bottom: 140px;
+    background: #eee;
+
+    .container {
+        .row {
+
+            .categorie {
+                text-align: center;
+
+                .style {
+                    font-family: 'Assistant', sans-serif;
+                    font-family: 40px;
+                    font-weight: bold;
+                    color: #222222;
+                    text-align: center;
+                    margin-bottom: 55px;
+                }
+
+                .titre {
+                    font-family: 'Assistant', sans-serif;
+                    font-size: 25px;
+                    font-weight: bold;
+                    color: #222222;
+                    text-align: center;
+                    margin-top: 55px;
+                }
+
+                .img-style {
+                    height: 185px;
+
+                    @media (max-width: 576px) {
+                        height: 120px;
+                    }
+                }
+
+                .img-style:hover {
+                    opacity: .5;
+                }
+
+                @media (min-width: 769px) {
+
+                    #img-decalage {
+                        // décalage de la photo jazz pour la centrer par rapport au texte
+                        margin-left: -18% !important;
+                    }
+                }
+
+                @media (max-width: 768px) {
+
+                    #img-decalage {
+                        // décalage de la photo jazz pour la centrer par rapport au texte
+                        margin-left: -5% !important;
+                    }
+                }
+
+            }
+
+            @media (min-width: 768px) and (max-width: 991px) {
+
+                .categorie:first-child,
+                .categorie:nth-child(2) {
+                    margin-top: 10px; // écart entre le header et la partie style musique 
+                }
+
+                .categorie:nth-child(3),
+                .categorie:last-child {
+                    margin-top: 100px; // écart entre le header et la partie style musique 
+                    margin-bottom: 20px;
+                }
+            }
+
+
+            @media (max-width: 767px) {
+                .categorie {
+                    margin-bottom: 50px; // écart entre le header et la partie style musique
+                }
+
+                .categorie:last-child {
+                    margin-bottom: 0px; // écart entre le header et la partie style musique 
+                }
+            }
+        }
+    }
+
+    @media (max-width: 991px) {
+        padding-top: 70px;
+        padding-bottom: 70px;
+    }
+}
+
+
+
+// partie formulaire + map
+#form-map {
+    background: #222222;
+
+    .container-fluid {
+
+        .row {
+
+            .form {
+
+                form {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    padding-top: 40px;
+                    padding-bottom: 60px;
+
+                    h3 {
+                        padding-left: 43%;
+    
+
+                        @media (min-width: 769px) and (max-width: 991px) {
+                            padding-left: 0;
+                            text-align: center;
+                            padding-bottom: 30px;
+                        }
+
+                        @media (max-width: 768px) {
+                            // padding-top: 200px;
+                            padding-left: 0;
+                            text-align: center;
+                        }
+                    }
+
+                    input {
+                        width: 122%;
+                        height: 30px;
+                        margin-bottom: 35px;
+                        color: #222;
+                        text-align: center;
+                        background-color: #eeeeee;
+
+                        @media (min-width: 769px) and (max-width: 991px) {
+                            width: 30%;
+                            margin-left: auto;
+                            margin-right: auto;
+                        }
+
+                        @media (max-width: 768px) {
+                            width: 100%;
+                        }
+                    }
+
+                    textarea {
+                        text-align: center;
+                        width: 122%;
+
+                        @media (min-width: 769px) and (max-width: 991px) {
+                            width: 30%;
+                            margin-left: auto;
+                            margin-right: auto;
+                        }
+
+                        @media (max-width: 768px) {
+                            width: 100%;
+                        }
+                    }
+
+                    button {
+                        background: transparent;
+                        border: none;
+                        color: white;
+                        font-family: 'Assistant', sans-serif;
+                        font-weight: bold;
+                        font-size: 25px;
+                        text-align: left;
+                        margin-left: 40%;
+                        margin-top: 35px;
+
+                        @media (min-width: 769px) and (max-width: 991px) {
+                            margin-left: 0;
+                            text-align: center;
+                        }
+
+                        @media (max-width: 768px) {
+                            margin-left: 0;
+
+                            text-align: center;
+                        }
+                    }
+
+                    button:hover {
+                        color: #d09b4a;
+                    }
+
+                    @media (max-width: 768px) {
+                        padding-top: 20px;
+                        padding-bottom: 20px;
+                    }
+                }
+
+                @media (max-width: 768px) {
+                    order: 2; // inversion entre le formulaire et la map
+                    display: flex;
+                    justify-content: center;
+                }
+
+                @media (min-width: 992px) {
+                    padding-left: 5%;
+                }
+
+                @media (max-width: 991px) {
+                    padding-left: 0%;
+                }
+            }
+
+            .map {
+                padding-top: 40px;
+                padding-bottom: 60px;
+
+
+                h3 {
+                    text-align: center;
+                }
+
+                #map {
+                    /* la carte DOIT avoir une hauteur sinon elle n'apparaît pas */
+                    height: 350px;
+                }
+
+                @media (min-width: 769px) and (max-width: 991px) {
+                    padding-top: 0;
+                }
+            }
+        }
+    }
+}
+
+// ACTUS.PHP
+#actus {
+    background: #eee;
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        h2 {
+            padding-top: 140px;
+            padding-bottom: 140px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: bold;
+            font-size: 50px;
+            text-align: center;
+
+            .small_underline {
+                border: 2px solid #222;
+                width: 15%;
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: 10px;
+            }
+        }
+
+        .row {
+            text-align: center;
+            margin-left: 9%;
+
+            .post-title {
+                margin-left: -33%;
+                margin-bottom: 30px;
+                font-family: 'Assistant', sans-serif;
+                font-weight: bold;
+                font-size: 30px;
+                color: #222;
+            }
+
+            .post-content {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                align-items: center;
+                background-color: #222;
+                color: white;
+                border-radius: 50%;
+                width: 210px;
+                height: 210px;
+
+                a {
+                    text-decoration: none;
+                    color: white;
+                }
+            }
+
+            .post-out {
+                margin-left: -33%;
+                margin-top: 20px;
+                margin-bottom: 80px;
+                font-family: 'Assistant', sans-serif;
+                font-weight: lighter;
+                font-size: 20px;
+            }
+        }
+    }
+}
+
+// single-post.php => descendant de actus.php
+
+#list-post {
+    background: #eee;
+
+    .container {
+
+        h2 {
+            padding-top: 140px;
+            padding-bottom: 140px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: bold;
+            font-size: 50px;
+            text-align: center;
+
+            .small_underline {
+                border: 2px solid #222;
+                width: 15%;
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: 10px;
+            }
+
+            @media (max-width: 567px) {
+                padding-top: 100px;
+                padding-bottom: 80px;
+            }
+        }
+
+        .row {
+            padding-bottom: 140px;
+
+            h4 {
+                font-family: 'Assistant', sans-serif;
+                font-size: 30px;
+                font-weight: bold;
+            }
+
+            .post-image {
+                height: 300px;
+                width: 50%;
+
+                @media (max-width: 567px) {
+                    order: 2;
+                    margin-top: 40px;
+                    height: 200px;
+                }
+            }
+
+            @media (max-width: 567px) {
+                padding-bottom: 100px;
+            }
+        }
+    }
+}
+
+
+// CATEGORY.PHP 
+
+#category {
+    background: #eee;
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        h2 {
+            padding-top: 140px;
+            padding-bottom: 140px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: bold;
+            font-size: 50px;
+            text-align: center;
+
+            .small_underline {
+                border: 2px solid #222;
+                width: 15%;
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: 10px;
+            }
+        }
+
+        .row {
+            text-align: center;
+            margin-left: 9%;
+
+            .album-title {
+                margin-left: -33%;
+                margin-bottom: 30px;
+                font-family: 'Assistant', sans-serif;
+                font-weight: bold;
+                font-size: 30px;
+                color: #222;
+            }
+
+            .album-content {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                align-items: center;
+                background-color: #222;
+                color: white;
+                border-radius: 50%;
+                width: 210px;
+                height: 210px;
+
+                a {
+                    text-decoration: none;
+                    color: white;
+                }
+            }
+
+            .album-out {
+                margin-left: -33%;
+                margin-top: 20px;
+                margin-bottom: 80px;
+                font-family: 'Assistant', sans-serif;
+                font-weight: lighter;
+                font-size: 20px;
+            }
+        }
+    }
+}
+
+//single.php => descendant de actus.php
+
+#list-album {
+    background: #eee;
+
+    .container {
+
+        h2 {
+            padding-top: 140px;
+            padding-bottom: 140px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: bold;
+            font-size: 50px;
+            text-align: center;
+
+            .small_underline {
+                border: 2px solid #222;
+                width: 15%;
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: 10px;
+            }
+
+            @media (max-width: 567px) {
+                padding-top: 100px;
+                padding-bottom: 80px;
+            }
+        }
+
+        .row {
+            padding-bottom: 140px;
+
+            @media (max-width: 567px) {
+                padding-bottom: 100px;
+            }
+
+            .album-img {
+                margin-top: 20px;
+            }
+
+            .album-bloc {
+
+                h4 {
+                    font-family: 'Assistant', sans-serif;
+                    font-size: 30px;
+                    font-weight: bold;
+                }
+
+                ul {
+                    li {
+                        font-family: 'Assistant', sans-serif;
+                        font-size: 20px;
+                        font-weight: bold;
+
+                        span {
+                            margin-left: 5%;
+                            font-family: 'Assistant', sans-serif;
+                            font-size: 20px;
+                            font-weight: 400;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+// FOOTER.PHP
+
+footer {
+    display: flex;
+    flex-direction: column;
+    background-color: #222222 !important;
+    padding-top: 42px;
+
+    .container-fluid {
+        display: flex;
+        flex-direction: row;
+
+        .row {
+
+            nav {
+
+                ul {
+                    display: flex;
+                    flex-direction: row;
+                    margin-left: -10%;
+
+                    li {
+                        a {
+                            color: white;
+                            font-family: 'Poppins', sans-serif;
+                            font-weight: bold;
+                            font-size: 20px;
+
+                            @media (max-width: 576px) {
+                                font-size: 12px;
+                                padding-left: 20%;
+                            }
+
+                            span {
+                                margin-right: 10px;
+                                margin-left: 10px;
+                            }
+                        }
+
+                        a:hover {
+                            color: #d09b4a;
+
+                            span {
+                                color: white;
+                                cursor: default;
+                            }
+                        }
+                    }
+                }
+            }
+
+            img {
+                height: 80px;
+
+                @media (max-width: 768px) {
+                    display: none;
+                }
+            }
+
+            p {
+                display: flex;
+                align-items: flex-end;
+                justify-content: flex-end;
+                margin-top: 100px;
+                margin-bottom: 30px;
+                font-family: 'Poppins', sans-serif;
+                font-weight: bold;
+                font-size: 25px;
+                color: white;
+
+                @media (max-width: 768px) {
+                    margin-top: 20px;
+                    font-size: 18px;
+                }
+
+            }
+
+            @media (min-width: 992px) {
+                width: 100%;
+            }
+        }
+    }
+}
