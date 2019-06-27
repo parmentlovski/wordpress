@@ -17,7 +17,7 @@ jQuery.post(
 
 // fonction load_more
 
-var offset = 9;
+var offset = 3;
 
 jQuery(window).scroll(function () {
     console.log('aaaaa');
@@ -35,7 +35,7 @@ if (jQuery(window).scrollTop() == jQuery(document).height() - jQuery(window).hei
             },
 
             function (response) {
-                offset = offset + 3;
+                offset = offset + 1;
                 jQuery('.alasuite').append(response);
                 // console.log(response);
             }
@@ -59,7 +59,7 @@ jQuery.post(
 
 // fonction load_more
 
-var offset = 9;
+var offsetAlbum = 9;
 
 jQuery(window).scroll(function () {
     if (jQuery(window).scrollTop() == jQuery(document).height() - jQuery(window).height()) {
@@ -69,11 +69,11 @@ jQuery(window).scroll(function () {
             ajaxurl,
             {
                 'action': 'load_more_album',
-                'offset': offset
+                'offset': offsetAlbum
             },
 
             function (response) {
-                offset = offset + 3;
+                offsetAlbum = offsetAlbum + 3;
                 jQuery('.alasuite-album').append(response);
                 // console.log(response);
             }

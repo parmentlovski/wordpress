@@ -31,7 +31,9 @@ $query = new WP_Query(array(
                         <img class="d-block w-100" src="http://localhost:8080/wp-content/uploads/2019/06/fond_3.jpg" alt="Premier slide" width="960" height="640">
                         <div class="carousel-caption d-none d-md-block">
                             <h2><?php the_title(); ?></h2> <!-- titre -->
-                            <p><?php the_excerpt(); ?></p> <!-- contenu -->
+                            <div class="content-slider">
+                                <p><?php the_excerpt(); ?></p> <!-- contenu -->
+                            </div>
                         </div>
                     </a>
                 <?php endif; ?>
@@ -40,10 +42,12 @@ $query = new WP_Query(array(
                 <!-- slider 2 -->
                 <?php if ($query->have_posts()) : $query->the_post();  ?>
                     <a href="<?php the_permalink(); ?>" target="_blank">
-                        <img class="d-block w-100" src="http://localhost:8080/wp-content/uploads/2019/06/fond_1.jpg" alt="Second slide" width="960" height="681">
+                        <img class="d-block w-100" src="http://localhost:8080/wp-content/uploads/2019/06/rock.jpg" alt="Second slide" width="960" height="681">
                         <div class="carousel-caption d-none d-md-block">
                             <h2><?php the_title(); ?></h2>
-                            <p><?php the_excerpt(); ?></p>
+                            <div class="content-slider">
+                                <p><?php the_excerpt(); ?></p> <!-- contenu -->
+                            </div>
                         </div>
                     </a>
                 <?php endif; ?>
@@ -55,7 +59,9 @@ $query = new WP_Query(array(
                         <img class="d-block w-100" src="http://localhost:8080/wp-content/uploads/2019/06/fond_2.jpg" alt="Troisième slide" width="960" height="406">
                         <div class="carousel-caption d-none d-md-block">
                             <h2><?php the_title(); ?></h2>
-                            <p><?php the_excerpt(); ?></p>
+                            <div class="content-slider">
+                                <p><?php the_excerpt(); ?></p> <!-- contenu -->
+                            </div>
                         </div>
                     </a>
                 <?php endif; ?>
@@ -86,7 +92,7 @@ $query = new WP_Query(array(
                 $cat = get_category('3'); ?>
                 <!-- prend blues -->
                 <h2 id="style_1" class="style"><?php echo $cat->cat_name; ?></h2> <!-- affiche blus -->
-                <a href="http://localhost:8080/category/blues/"><img class="img-style" src="http://localhost:8080/wp-content/uploads/2019/06/blues.png" alt="Image représentant le blues"></a> <!-- width="224" height="340" -->
+                <a href="<?php echo get_category_link('3'); ?> "><img class="img-style" src="http://localhost:8080/wp-content/uploads/2019/06/blues.png" alt="Image représentant le blues"></a> <!-- width="224" height="340" -->
                 <?php $count = count($posts); ?>
                 <!-- compte le nombre de titres -->
                 <p id="titre_1" class="titre"><?php echo $cat->count . ' titres'; ?></p> <!-- affiche -->
@@ -97,7 +103,7 @@ $query = new WP_Query(array(
                 <?php $posts = get_posts('post_type=album&category=5');
                 $cat = get_category('5'); ?>
                 <h2 id="style_2" class="style"><?php echo $cat->cat_name; ?></h2>
-                <a href="http://localhost:8080/category/disco/"><img class="img-style" src="http://localhost:8080/wp-content/uploads/2019/06/disco.png" alt="Image représentant le disco"></a> <!-- width="170" height="340" -->
+                <a href="<?php echo get_category_link('5'); ?>?>"><img class="img-style" src="http://localhost:8080/wp-content/uploads/2019/06/disco.png" alt="Image représentant le disco"></a> <!-- width="170" height="340" -->
                 <?php $count = count($posts); ?>
                 <p id="titre_2" class="titre"><?php echo $cat->count . ' titres'; ?></p>
             </div>
@@ -107,7 +113,7 @@ $query = new WP_Query(array(
                 <?php $posts = get_posts('post_type=album&category=2');
                 $cat = get_category('2'); ?>
                 <h2 id="style_3" class="style"><?php echo $cat->cat_name; ?></h2>
-                <a href="http://localhost:8080/category/rock/"><img class="img-style" src="http://localhost:8080/wp-content/uploads/2019/06/rock.png" alt="Image représentant le rock"></a> <!-- width="170" height="340" -->
+                <a href="<?php echo get_category_link('2'); ?>/"><img class="img-style" src="http://localhost:8080/wp-content/uploads/2019/06/rock.png" alt="Image représentant le rock"></a> <!-- width="170" height="340" -->
                 <?php $count = count($posts); ?>
                 <p id="titre_3" class="titre"><?php echo $cat->count . ' titres'; ?></p>
             </div>
@@ -117,7 +123,7 @@ $query = new WP_Query(array(
                 <?php $posts = get_posts('post_type=album&category=4');
                 $cat = get_category('4'); ?>
                 <h2 id="style_4" class="style"><?php echo $cat->cat_name; ?></h2>
-                <a href="http://localhost:8080/category/jazz/"><img id="img-decalage" class="img-style" src="http://localhost:8080/wp-content/uploads/2019/06/jazz.png" alt="Image représentant le jazz"></a> <!-- width="287" height="340" -->
+                <a href="<?php echo get_category_link('4'); ?>"><img id="img-decalage" class="img-style" src="http://localhost:8080/wp-content/uploads/2019/06/jazz.png" alt="Image représentant le jazz"></a> <!-- width="287" height="340" -->
                 <?php $count = count($posts); ?>
                 <p id="titre_4" class="titre"> <?php echo $cat->count . ' titres'; ?></p>
             </div>
@@ -127,21 +133,31 @@ $query = new WP_Query(array(
 
 <section id="form-map">
     <!-- DEBUT FORMULAIRE/MAP -->
-    <div class="container-fluid ml-0 mr-0">
-        <div class="row mr-0 ml-0">
+    <div class="container-fluid ml-0 mr-0 pl-0 pr-0">
+        <div class="row mr-0 ml-0 pl-0 pr-0">
             <div class="form col-xs-12 col-sm-12 col-md-12 col-lg-3 col-xl-3 ">
                 <form>
                     <h3>Contact</h3>
-                    <input type="text" id="name" placeholder="Votre nom">
-                    <input type="text" id="mail" placeholder="Votre email">
-                    <textarea id="message" placeholder="Votre message" rows="6" cols="40"></textarea>
-                    <button>Envoyer</button>
+                    <input type="text" id="name" name="name" placeholder="Votre nom">
+                    <input type="text" id="email" name="email" placeholder="Votre email">
+                    <textarea id="message" name="message" placeholder="Votre message" rows="4" cols="40"></textarea>
+                    <input type="hidden" name="hidden" value="1">
+                    <button name="message-submit">Envoyer</button>
                 </form>
+               
+
+                <?php 
+                if( isset($_GET['send']) && $_GET['send'] === "sent") {
+                    echo "Votre email est bien partie";
+                } else if (isset($_GET['send']) && $_GET['send'] === "notSent") {
+                    echo "Le serveur du mail ne marche plus !!! désolé";
+                } ?>
+
             </div>
             <div class="map col-xs-12 col-sm-12 col-md-12 offset-lg-1 offset-xl-1 col-lg-8 col-xl-8">
                 <!-- MAP -->
                 <h3>Nous sommes ici</h3>
-                <div id="map">
+                <div id="map" class="mr-0 ml-0 pl-0 pr-0">
                     <!-- Ici s'affichera la carte -->
                 </div>
             </div>
@@ -155,7 +171,6 @@ $resultats = $wpdb->get_results("SELECT * FROM {$wpdb->prefix}options WHERE opti
 // Parcours des resultats obtenus
 foreach ($resultats as $post) { }
 ?>
-
 <script>
 var adress_client = '<?PHP echo $post->option_value; ?>';
     console.log(adress_client);

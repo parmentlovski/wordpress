@@ -1,8 +1,9 @@
 <?php
 /* Template Name: actus */ ?>
 
-<?php get_header(); ?>
-
+<?php get_header(); 
+var_dump($link);
+?>
 
 <section id="actus" class="container-fluid">
     <div class="container">

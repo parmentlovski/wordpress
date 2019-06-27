@@ -1,12 +1,15 @@
 <?php
 /* Template Name: archive */ ?>
 
-<?php get_header(); ?>
-
+<?php get_header(); 
+$cat = get_the_category($cat_ID, 'album');
+var_dump($cat); 
+?>
 
 <section id="category" class="container-fluid">
+    
     <div class="container">
-        <h2>LISTE DES VINYLES<span class="small_underline"></h2>
+        <h2>LISTE DES VINYLES <?php echo $cat[0]->category; ?><span class="small_underline"></h2>
         <div class="row somewhere-album alasuite-album">
         </div>
     </div>
