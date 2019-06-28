@@ -1,4 +1,6 @@
-<?php get_header(); ?>
+<?php get_header(); 
+ 
+?>
 
 <section id="list-album" class="container-fluid">
     
@@ -24,6 +26,7 @@
                             <li>Numéro d'identification : <span><?php echo get_post_meta($post->ID, '_num_id', true); ?></span></li>
                             <li>Label de production : <span><?php echo get_post_meta($post->ID, '_label', true); ?></span></li>
                             <li>Compositeur : <span><?php echo get_post_meta($post->ID, '_compositeur', true); ?></span></li>
+                            <li>Prix : <span><?php echo get_post_meta($post->ID, '_prix', true); ?></span></li>
                         </ul>
                     </div>
                 <?php

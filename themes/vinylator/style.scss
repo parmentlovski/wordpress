@@ -427,7 +427,7 @@ header {
                                 margin-left: auto;
                                 margin-right: auto;
                                 margin-bottom: -100px;
-                                // color: #ecf0f1;
+                                // color: #ecf0f1;sta
                                 transition: visibility 0.3s linear, opacity 0.3s linear;
                                 font-weight: lighter;
 
@@ -590,42 +590,67 @@ header {
 
         .row {
             text-align: center;
-            margin-left: 9%;
+            // margin-left: 9%;
 
-            .album-title {
-                margin-left: -33%;
-                margin-bottom: 30px;
-                font-family: 'Assistant', sans-serif;
-                font-weight: bold;
-                font-size: 30px;
-                color: #222;
-            }
+            .article {
 
-            .album-content {
-                display: flex;
-                flex-direction: column;
-                justify-content: space-around;
-                align-items: center;
-                background-color: #222;
-                color: white;
-                border-radius: 50%;
-                width: 210px;
-                height: 210px;
+                .album-content { 
+                    a {
+                        text-decoration: none;
+                        color: #222;
+                    }
 
-                a {
-                    text-decoration: none;
-                    color: white;
+                    .album-image {
+                        display: none;
+                    }
+
+                    .album-image::after {
+                        position: relative;
+                        width: 78.8%;
+                        height: 200px;
+                        transition: all 0.3s cubic-bezier(0.41, 0.094, 0.54, 0.07) 0s;
+                        background-color: rgba(0, 0, 0, 0.1);
+                        content: " "
+                    }
+
+                    .album-title {
+                        // margin-left: -33%;
+                        margin-bottom: 30px;
+                        font-family: 'Assistant', sans-serif;
+                        font-weight: bold;
+                        font-size: 30px;
+                        color: #222;
+                    }
+
+                    .album-excerpt {
+                        font-family: 'Assistant', sans-serif;
+                        font-weight: lighter;
+                        font-size: 20px;
+                    }
+
+                    .album-price {
+                        font-family: 'Assistant', sans-serif;
+                        font-weight: lighter;
+                        font-size: 20px;
+                    }
                 }
             }
 
-            .album-out {
-                margin-left: -33%;
-                margin-top: 20px;
-                margin-bottom: 80px;
-                font-family: 'Assistant', sans-serif;
-                font-weight: lighter;
-                font-size: 20px;
-            }
+
+
+            // .album-content {
+            //     display: flex;
+            //     flex-direction: column;
+            //     justify-content: space-around;
+            //     align-items: center;
+            //     // background-color: #222;
+            //     // color: white;
+            //     // border-radius: 50%;
+            //     // width: 210px;
+            //     // height: 210px; 
+            //     }
+            // }
+
         }
     }
 }

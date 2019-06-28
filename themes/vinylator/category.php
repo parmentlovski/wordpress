@@ -11,6 +11,7 @@
     <div class="container">
         <h2>LISTE DES VINYLES <?php ?><span class="small_underline"></h2>
         <div class="row somewhere-album alasuite-album">
+
         </div>
     </div>
 </section>

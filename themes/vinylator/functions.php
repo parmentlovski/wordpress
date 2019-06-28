@@ -191,12 +191,14 @@ add_action('add_meta_boxes', 'init_metabox');
 
 function info_album($post)
 {
+    // global $post;
     $compositeur = get_post_meta($post->ID, '_compositeur', true);
     $dateSortie = get_post_meta($post->ID, '_date-sortie', true);
     $label = get_post_meta($post->ID, '_label', true);
     $duree = get_post_meta($post->ID, '_durée', true);
     $numId = get_post_meta($post->ID, '_num_id', true);
     $pressage = get_post_meta($post->ID, '_pressage', true);
+    $prix = get_post_meta($post->ID, '_prix', true);
     ?>
 
     <div style="display:flex;flex-direction:column;">
@@ -220,7 +222,8 @@ function info_album($post)
         <input id="compositeur" style="width:30%; margin-bottom:20px;" type="text" name="compositeur" value="<?php echo $compositeur; ?>" />
 
         <label for="prix" style="margin-bottom:5px;">Prix :</label>
-        <input id="prix" style="width:30%; margin-bottom:20px;" type="text" name="prix" value="<?php echo $prix; ?>" />
+        <input id="prix" style="width:30%; margin-bottom:20px;" type="text" name="prix" value="<?php echo $prix; ?>
+            " />
     </div>
 
 <?php
@@ -280,7 +283,7 @@ function mon_action()
         while ($ajax_query->have_posts()) : $ajax_query->the_post();
             $content = get_the_content();
             $content = strip_tags($content);
-            $word=strpos($content, ' ', 500);
+            $word = strpos($content, ' ', 500);
             ?>
             <article class="col-12">
                 <div class="article-post">
@@ -300,8 +303,8 @@ function mon_action()
                 </div>
             </article>
         <?php endwhile;
-endif;
-die();
+    endif;
+    die();
 }
 add_action('wp_ajax_mon_action', 'mon_action');
 add_action('wp_ajax_nopriv_mon_action', 'mon_action');
@@ -346,8 +349,8 @@ function load_more()
                 </div>
             </article>
         <?php endwhile;
-endif;
-die();
+    endif;
+    die();
 }
 add_action('wp_ajax_load_more', 'load_more');
 add_action('wp_ajax_nopriv_load_more', 'load_more');
@@ -360,6 +363,7 @@ add_action('wp_ajax_nopriv_load_more', 'load_more');
 
 function mon_action_album()
 {
+    global $post;
     //  $param = $_POST['param'];
     //  echo $param;
 
@@ -379,19 +383,18 @@ function mon_action_album()
     if ($ajax_query->have_posts()) :
         while ($ajax_query->have_posts()) : $ajax_query->the_post(); ?>
             <article class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-4">
-                <p class="album-title"><?php the_title(); ?></p>
                 <div class="album-content">
-                    <?php the_modified_date(); ?><br /><a href="<?php the_permalink(); ?>" rel="bookmark">
-                        <?php the_post_thumbnail(array(100, 100)); ?></a>
-                    <?php the_category(); ?>
-                </div>
-                <div class="album-out">
-                    <p class="album-excerpt"><?php the_excerpt(); ?></p>
+                    <a href="<?php echo the_permalink(); ?>">
+                        <div class="album-image"><?php the_post_thumbnail(array(200,200)); ?></div>
+                        <div class="album-title"><?php the_title(); ?></div>
+                        <div class="album-excerpt"><?php the_excerpt(); ?></div>
+                        <div class="album-price"><?php echo get_post_meta($post->ID, '_prix', true); ?></div>
+                    </a>
                 </div>
             </article>
         <?php endwhile;
-endif;
-die();
+    endif;
+    die();
 }
 add_action('wp_ajax_mon_action_album', 'mon_action_album');
 add_action('wp_ajax_nopriv_mon_action_album', 'mon_action_album');
@@ -418,6 +421,8 @@ function load_more_album()
 
     $ajax_query = new WP_Query($args);
 
+
+
     if ($ajax_query->have_posts()) :
         while ($ajax_query->have_posts()) : $ajax_query->the_post(); ?>
             <article class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-4">
@@ -435,8 +440,8 @@ function load_more_album()
                 </div>
             </article>
         <?php endwhile;
-endif;
-die();
+    endif;
+    die();
 }
 add_action('wp_ajax_load_more_album', 'load_more_album');
 add_action('wp_ajax_nopriv_load_more_album', 'load_more_album');
@@ -472,7 +477,7 @@ function adress_init()
 add_action('admin_menu', 'adress_setup_menu');
 
 
-// --------------------------------  MAP ---------------------------------------//
+// --------------------------------  FORM ---------------------------------------//
 
 function vinylator_save_contact()
 {
