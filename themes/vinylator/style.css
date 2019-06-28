@@ -519,16 +519,11 @@ header .navbar div ul li a:hover {
   }
 }
 
-@media (max-width: 576px) {
   #list-post .container h2 {
     padding-top: 40px;
     padding-bottom: 30px;
   }
 }
-
-#list-post .container .row h4 {
-  font-family: 'Poppins', sans-serif;
-  font-size: 22px;
   margin-bottom: 10px;
   padding-left: 9.6%;
 }
