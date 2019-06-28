@@ -7,17 +7,20 @@ function vinylator_scripts()
 {
 
     // chargement des styles 
-    wp_enqueue_style('vinylator_font', 'https://fonts.googleapis.com/css?family=Assistant:300,600,700,800&display=swap');
+    // wp_enqueue_style('vinylator_font', 'https://fonts.googleapis.com/css?family=Assistant:600,700&display=swap');
     wp_enqueue_style('leaflet_styles', 'https://unpkg.com/leaflet@1.3.1/dist/leaflet.css');
+    wp_enqueue_style('fontawesome', 'https://use.fontawesome.com/releases/v5.8.1/css/all.css');
     wp_enqueue_style('vinylator_bootstrap-core', get_template_directory_uri() . '/css/bootstrap.min.css', array(), 'VINYLATOR_VERSION', 'all');
     wp_enqueue_style('vinylator_custom', get_template_directory_uri() . '/style.css', array(), 'VINYLATOR_VERSION', 'all');
+
+
 
     // chargement des scripts 
     wp_enqueue_script('vinylator_admin_script', get_template_directory_uri() . '/js/animation.js', array('jquery'), 'VINYLATOR_VERSION', true);
     wp_enqueue_script('vinylator-map', get_template_directory_uri() . '/js/map.js', array('jquery'), 'VINYLATOR_VERSION', true);
     wp_enqueue_script('script', get_template_directory_uri() . '/js/script.js', array('jquery'), 'VINYLATOR_VERSION', true);
 
-    // wp_enqueue_script('bootstrap-css', 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css');
+    wp_enqueue_script('bootstrap-css', 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css');
     wp_enqueue_script('bootstrap-js', 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js');
     wp_enqueue_script('leaflet', 'https://unpkg.com/leaflet@1.3.1/dist/leaflet.js');
 
@@ -49,12 +52,14 @@ add_action('wp_enqueue_scripts', 'vinylator_scripts');
 
 function register_my_menu()
 {
-    register_nav_menu('header-menu', __('Header Menu'));
+    register_nav_menu(
+        'header-menu',
+        __('Header Menu')
+    );
 }
 add_action('init', 'register_my_menu');
 
 add_theme_support('custom-logo');
-
 
 function vinylator_the_custom_logo()
 {
@@ -62,6 +67,13 @@ function vinylator_the_custom_logo()
         the_custom_logo();
     }
 }
+
+// function remove_more_link_scroll($link)
+// {
+//     $link = preg_replace('|#more-[0-9]+|', '', $link);
+//     return $link;
+// }
+// add_filter('the_content_more_link', 'remove_more_link_scroll');
 
 // --------------------------------  CUSTOM POST TYPE  ----------------------------------------//
 
@@ -206,6 +218,9 @@ function info_album($post)
 
         <label for="compositeur" style="margin-bottom:5px;">Compositeur :</label>
         <input id="compositeur" style="width:30%; margin-bottom:20px;" type="text" name="compositeur" value="<?php echo $compositeur; ?>" />
+
+        <label for="prix" style="margin-bottom:5px;">Prix :</label>
+        <input id="prix" style="width:30%; margin-bottom:20px;" type="text" name="prix" value="<?php echo $prix; ?>" />
     </div>
 
 <?php
@@ -232,6 +247,9 @@ function save_metabox($post_id)
     if (isset($_POST['compositeur'])) {
         update_post_meta($post_id, '_compositeur', sanitize_text_field($_POST['compositeur']));
     }
+    if (isset($_POST['prix'])) {
+        update_post_meta($post_id, '_prix', sanitize_text_field($_POST['prix']));
+    }
 }
 
 add_action('save_post', 'save_metabox');
@@ -251,24 +269,34 @@ function mon_action()
     //  echo $param;
     $args = array(
         'post_type' => 'post',
-        'posts_per_page' => 9,
-        'order' => 'ASC', // classé par ordre alphabétique 
+        'posts_per_page' => 3,
+        'order' => 'DESC', // classé par ordre alphabétique 
         'orderby' => 'date_post', // par titre 
     );
 
     $ajax_query = new WP_Query($args);
 
     if ($ajax_query->have_posts()) :
-        while ($ajax_query->have_posts()) : $ajax_query->the_post(); ?>
-           <article class="col-xs-6 col-sm-6 col-md-6 col-lg-4 col-xl-4">
-            <p class="post-title"><?php the_title(); ?></p>
-                <div class="post-content">
-                    <?php the_modified_date(); ?><br /><a href="<?php the_permalink(); ?>" rel="bookmark">
-                        <?php the_post_thumbnail(array(100, 100)); ?></a>
-                    <?php the_category(); ?>
-                </div>
-                <div class="post-out">
-                    <p class="post-excerpt"><?php the_excerpt(); ?></p>
+        while ($ajax_query->have_posts()) : $ajax_query->the_post();
+            $content = get_the_content();
+            $content = strip_tags($content);
+            $word=strpos($content, ' ', 500);
+            ?>
+            <article class="col-12">
+                <div class="article-post">
+                    <a href="<?php the_permalink(); ?>">
+                        <div class="post-img">
+                            <?php the_post_thumbnail(); ?>
+                        </div>
+                    </a>
+                    <div class="post-position-bottom">
+                        <div class="post-out">
+                            <div class="post-title"><?php echo the_title(); ?></div>
+                            <div class="post-excerpt"><?php the_excerpt(); ?></div>
+                            <div class="post-content"><a href="<?php the_permalink(); ?>"><?php echo substr($content, 0, $word) . "<br><br>Lire l'article ..."; ?></a></div>
+                        </div>
+                        <div class="post-date">Article écrit le <?php the_modified_date(); ?></div>
+                    </div>
                 </div>
             </article>
         <?php endwhile;
@@ -288,25 +316,33 @@ function load_more()
     $offset = $_POST['offset'];
     $args = array(
         'post_type' => 'post',
-        'posts_per_page' => 3,
+        'posts_per_page' => 1,
         'offset' => $offset,
-        'order' => 'ASC', // classé par ordre alphabétique 
+        'order' => 'DESC', // classé par ordre alphabétique 
         'orderby' => 'date_post', // par titre 
     );
 
     $ajax_query = new WP_Query($args);
 
     if ($ajax_query->have_posts()) :
-        while ($ajax_query->have_posts()) : $ajax_query->the_post(); ?>
-            <article class="col-xs-6 col-sm-6 col-md-6 col-lg-4 col-xl-4">
-            <p class="post-title"><?php the_title(); ?></p>
-                <div class="post-content">
-                    <?php the_modified_date(); ?><br /><a href="<?php the_permalink(); ?>" rel="bookmark">
-                        <?php the_post_thumbnail(array(100, 100)); ?></a>
-                    <?php the_category(); ?>
-                </div>
-                <div class="post-out">
-                    <p class="post-excerpt"><?php the_excerpt(); ?></p>
+        while ($ajax_query->have_posts()) : $ajax_query->the_post();
+            $content = get_the_content();
+            $content = strip_tags($content); ?>
+            <article class="col-12">
+                <div class="article-post">
+                    <a href="<?php the_permalink(); ?>">
+                        <div class="post-img">
+                            <?php the_post_thumbnail(); ?>
+                        </div>
+                    </a>
+                    <div class="post-position-bottom">
+                        <div class="post-out">
+                            <div class="post-title"><?php the_title(); ?></div>
+                            <div class="post-excerpt"><?php the_excerpt(); ?></div>
+                            <div class="post-content"><a href="<?php the_permalink(); ?>"><?php echo substr($content, 0, 450) . "<br><br>Lire l'article ..."; ?></a></div>
+                        </div>
+                        <div class="post-date">Article écrit le <?php the_modified_date(); ?></div>
+                    </div>
                 </div>
             </article>
         <?php endwhile;
@@ -342,8 +378,8 @@ function mon_action_album()
 
     if ($ajax_query->have_posts()) :
         while ($ajax_query->have_posts()) : $ajax_query->the_post(); ?>
-            <article class="col-xs-6 col-sm-6 col-md-6 col-lg-4 col-xl-4">
-            <p class="album-title"><?php the_title(); ?></p>
+            <article class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-4">
+                <p class="album-title"><?php the_title(); ?></p>
                 <div class="album-content">
                     <?php the_modified_date(); ?><br /><a href="<?php the_permalink(); ?>" rel="bookmark">
                         <?php the_post_thumbnail(array(100, 100)); ?></a>
@@ -366,7 +402,7 @@ function load_more_album()
 
 {
     global $ajax_query;
-    $offset = $_POST['offset'];
+    $offsetAlbum = $_POST['offset'];
 
     $url = $_SERVER["HTTP_REFERER"];
     $url = explode("/", $url);
@@ -374,7 +410,7 @@ function load_more_album()
     $args = array(
         'post_type' => 'album',
         'posts_per_page' => 3,
-        'offset' => $offset,
+        'offset' => $offsetAlbum,
         'category_name' => $url[4],
         'order' => 'DESC', // classé par ordre alphabétique 
         'orderby' => 'date_post', // par titre 
@@ -384,13 +420,16 @@ function load_more_album()
 
     if ($ajax_query->have_posts()) :
         while ($ajax_query->have_posts()) : $ajax_query->the_post(); ?>
-            <article class="col-xs-6 col-sm-6 col-md-6 col-lg-4 col-xl-4">
-            <p class="album-title"><?php the_title(); ?></p>
+            <article class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-4">
+                <p class="album-title"><?php the_title(); ?></p>
                 <div class="album-content">
-                    <?php the_modified_date(); ?><br /><a href="<?php the_permalink(); ?>" rel="bookmark">
-                        <?php the_post_thumbnail(array(100, 100)); ?></a>
-                    <?php the_category(); ?>
+                    <a href="<?php the_permalink(); ?>" rel="bookmark">
+                        <?php the_modified_date(); ?><br />
+                        <?php the_post_thumbnail(array(100, 100)); ?>
+                        <?php the_category(); ?>
+                    </a>
                 </div>
+                </a>
                 <div class="album-out">
                     <p class="album-excerpt"><?php the_excerpt(); ?></p>
                 </div>
@@ -433,5 +472,30 @@ function adress_init()
 add_action('admin_menu', 'adress_setup_menu');
 
 
+// --------------------------------  MAP ---------------------------------------//
 
+function vinylator_save_contact()
+{
+    global $wpdb;
 
+    if (isset($_POST['message-submit']) && $_POST['hidden'] === "1") {
+
+        $name = sanitize_text_field($_POST['name']); //sanitize_text_field() sécurise/nettoie l'envoie vers sql
+        $email = sanitize_email($_POST['email']);
+        $message = sanitize_text_field($_POST['message']);
+
+        $admin_email = get_option('admin-email');
+        $headers = "From : \"" . $name . "\"<" . $email . ">\r\n";
+
+        $envoie = wp_mail($admin_email, 'Message depuis le site Vinylator', $message, $headers);
+
+        $textSend = ($envoie === true) ? 'sent' : 'notSent';
+
+        global $wp;
+        $wp->add_query_var('send');
+        $url = get_page_by_title('home');
+        wp_redirect(get_permalink($url) . '?send=' . $textSend);
+
+        exit();
+    }
+}

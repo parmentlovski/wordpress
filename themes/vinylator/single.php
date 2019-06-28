@@ -1,6 +1,7 @@
 <?php get_header(); ?>
 
 <section id="list-album" class="container-fluid">
+    
     <div class="container">
         <?php
         if (have_posts()) {
@@ -11,7 +12,7 @@
                 <h2><?php the_title(); ?></h2>
 
                 <div class="row d-flex justify-content-center">
-                    <div class='album-img col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-6'>
+                    <div class='album-img col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4'>
                         <?php the_post_thumbnail(array(300, 300)); ?>
                     </div>
                     <div class="album-bloc d-flex flex-column justify-content-center col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
