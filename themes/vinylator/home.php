@@ -43,7 +43,6 @@ $query = new WP_Query(array(
                     <a href="<?php the_permalink(); ?>" target="_blank">
                         <img class="d-block w-100" src="http://localhost:8080/wp-content/uploads/2019/06/bysshe.jpg" alt="Second slide" width="960" height="681">
                         <div class="carousel-caption d-none d-md-block">
-                           
                             <div class="content-slider">
                                 <p><?php the_excerpt(); ?></p> <!-- contenu -->
                             </div>
@@ -57,7 +56,6 @@ $query = new WP_Query(array(
                     <a href="<?php the_permalink(); ?>" target="_blank">
                         <img class="d-block w-100" src="http://localhost:8080/wp-content/uploads/2019/06/fond_2.jpg" alt="Troisième slide" width="960" height="406">
                         <div class="carousel-caption d-none d-md-block">
-                            <h2><?php the_title(); ?></h2>
                             <div class="content-slider">
                                 <p><?php the_excerpt(); ?></p> <!-- contenu -->
                             </div>
@@ -91,7 +89,7 @@ $query = new WP_Query(array(
                 $cat = get_category('3'); ?>
                 <!-- prend blues -->
                 <h2 id="style_1" class="style"><?php echo $cat->cat_name; ?></h2> <!-- affiche blus -->
-                <a href="<?php echo get_category_link('3'); ?> "><img class="img-style" src="http://localhost:8080/wp-content/uploads/2019/06/blues.png" alt="Image représentant le blues"></a> <!-- width="224" height="340" -->
+                <a href="<?php echo get_category_link('3'); ?> "><img id="choix-1" class="img-style" src="http://localhost:8080/wp-content/uploads/2019/06/blues.png" alt="Image représentant le blues"></a> <!-- width="224" height="340" -->
                 <?php $count = count($posts); ?>
                 <!-- compte le nombre de titres -->
                 <p id="titre_1" class="titre"><?php echo $cat->count . ' titres'; ?></p> <!-- affiche -->
@@ -102,7 +100,7 @@ $query = new WP_Query(array(
                 <?php $posts = get_posts('post_type=album&category=5');
                 $cat = get_category('5'); ?>
                 <h2 id="style_2" class="style"><?php echo $cat->cat_name; ?></h2>
-                <a href="<?php echo get_category_link('5'); ?>?>"><img class="img-style" src="http://localhost:8080/wp-content/uploads/2019/06/disco.png" alt="Image représentant le disco"></a> <!-- width="170" height="340" -->
+                <a href="<?php echo get_category_link('5'); ?>?>"><img id="choix-2" class="img-style" src="http://localhost:8080/wp-content/uploads/2019/06/disco.png" alt="Image représentant le disco"></a> <!-- width="170" height="340" -->
                 <?php $count = count($posts); ?>
                 <p id="titre_2" class="titre"><?php echo $cat->count . ' titres'; ?></p>
             </div>
@@ -112,7 +110,7 @@ $query = new WP_Query(array(
                 <?php $posts = get_posts('post_type=album&category=2');
                 $cat = get_category('2'); ?>
                 <h2 id="style_3" class="style"><?php echo $cat->cat_name; ?></h2>
-                <a href="<?php echo get_category_link('2'); ?>/"><img class="img-style" src="http://localhost:8080/wp-content/uploads/2019/06/rock.png" alt="Image représentant le rock"></a> <!-- width="170" height="340" -->
+                <a href="<?php echo get_category_link('2'); ?>/"><img id="choix-3" class="img-style" src="http://localhost:8080/wp-content/uploads/2019/06/rock.png" alt="Image représentant le rock"></a> <!-- width="170" height="340" -->
                 <?php $count = count($posts); ?>
                 <p id="titre_3" class="titre"><?php echo $cat->count . ' titres'; ?></p>
             </div>

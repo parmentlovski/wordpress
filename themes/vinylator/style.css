@@ -120,7 +120,19 @@ header .navbar div ul li a:hover {
   }
 }
 
-@media (max-width: 1000px) {
+@media (min-width: 992px) and (max-width: 1000px) {
+  header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+}
+
+@media (max-width: 991px) {
   header .row {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -262,10 +274,6 @@ header .navbar div ul li a:hover {
   #music .container .row .categorie .img-style {
     height: 120px;
   }
-}
-
-#music .container .row .categorie .img-style:hover {
-  opacity: .5;
 }
 
 @media (min-width: 769px) {
@@ -702,6 +710,7 @@ header .navbar div ul li a:hover {
 @media (max-width: 991px) {
   #category .container .row article .album-content:hover .album-text {
     color: white;
+    background-color: rgba(34, 34, 34, 0.6);
   }
 }
 
@@ -747,15 +756,8 @@ header .navbar div ul li a:hover {
   }
 }
 
-#list-album .container .album-h4 {
-  font-family: 'Assistant', sans-serif;
-  font-size: 30px;
-  font-weight: bold;
-  margin-bottom: 50px;
-}
-
 #list-album .container .row {
-  padding-bottom: 140px;
+  padding-bottom: 100px;
 }
 
 #list-album .container .row .album-img img {
@@ -773,11 +775,29 @@ header .navbar div ul li a:hover {
 
 @media (max-width: 767px) {
   #list-album .container .row .album-img {
-    -webkit-box-ordinal-group: 3;
-        -ms-flex-order: 2;
-            order: 2;
-    margin-top: 50px;
+    display: none;
   }
+}
+
+#list-album .container .row .album-bloc .album-h4 {
+  font-family: 'Assistant', sans-serif;
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  #list-album .container .row .album-bloc .album-h4 {
+    margin-bottom: 0;
+    font-size: 27px;
+    text-align: left;
+    margin-left: 10%;
+  }
+}
+
+#list-album .container .row .album-bloc ul {
+  width: 120%;
 }
 
 #list-album .container .row .album-bloc ul li {
@@ -792,6 +812,19 @@ header .navbar div ul li a:hover {
   font-family: 'Assistant', sans-serif;
   font-size: 20px;
   font-weight: 400;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  #list-album .container .row .album-bloc ul li span {
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  #list-album .container .row .album-bloc ul li {
+    font-size: 15px;
+    margin-top: 4px;
+  }
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
@@ -813,6 +846,96 @@ header .navbar div ul li a:hover {
   #list-album .container .row {
     padding-bottom: 70px;
   }
+}
+
+#suggestions {
+  background: #eee;
+  padding-bottom: 80px;
+}
+
+#suggestions h2 {
+  padding-bottom: 30px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  font-size: 30px;
+  text-align: center;
+}
+
+#suggestions .container .row .suggestions .suggestions-img {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#suggestions .container .row .suggestions .suggestions-img img {
+  height: 200px;
+  width: 200px;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  #suggestions .container .row .suggestions .suggestions-img img {
+    height: 150px;
+    width: 150px;
+    margin-top: 15px;
+  }
+}
+
+@media (max-width: 767px) {
+  #suggestions .container .row .suggestions .suggestions-img img {
+    height: 150px;
+    width: 150px;
+    margin-top: 15px;
+  }
+}
+
+#suggestions .container .row .suggestions .suggestions-album {
+  position: absolute;
+  bottom: 1px;
+  left: 7.5%;
+  width: 85.9%;
+  z-index: 900;
+  color: white;
+  background-color: rgba(34, 34, 34, 0.6);
+}
+
+@media (max-width: 991px) {
+  #suggestions .container .row .suggestions .suggestions-album .suggestions-title {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 991px) {
+  #suggestions .container .row .suggestions .suggestions-album .suggestions-excerpt {
+    font-size: 12px;
+  }
+}
+
+#suggestions .container .row .suggestions .suggestions-album .suggestions-album:hover {
+  color: #d09b4a;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  #suggestions .container .row .suggestions .suggestions-album {
+    bottom: 1px;
+    left: 29%;
+    width: 42%;
+  }
+}
+
+@media (max-width: 767px) {
+  #suggestions .container .row .suggestions .suggestions-album {
+    bottom: 1px;
+    left: 23%;
+    width: 55%;
+  }
+}
+
+#suggestions .container .row .suggestions .suggestions:hover {
+  color: #d09b4a;
+  border: 1px solid #d09b4a;
 }
 
 #form-map {

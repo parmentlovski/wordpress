@@ -94,7 +94,7 @@ header {
 
                         @media (min-width: 992px) and (max-width: 1199px) {
                             font-size: 20px;
-                         }
+                        }
 
                         @media (min-width: 577px) and (max-width: 991px) {
                             font-size: 15px;
@@ -112,7 +112,7 @@ header {
 
                 @media (min-width: 992px) and (max-width: 1199px) {
                     padding-left: 30px;
-                 }
+                }
 
                 @media (max-width: 991px) {
                     padding-bottom: 0;
@@ -121,8 +121,12 @@ header {
         }
     }
 
+    @media (min-width: 992px) and (max-width: 1000px) {
+        display: flex;
+        flex-direction: row;// inversion entre le logo et le burger
+    }
 
-    @media (max-width: 1000px) {
+    @media (max-width: 991px) {
         .row {
             display: flex;
             flex-direction: row-reverse; // inversion entre le logo et le burger
@@ -264,10 +268,6 @@ header {
                     @media (max-width: 576px) {
                         height: 120px;
                     }
-                }
-
-                .img-style:hover {
-                    opacity: .5;
                 }
 
                 @media (min-width: 769px) {
@@ -686,7 +686,7 @@ header {
                     -webkit-transform: rotateZ(-2deg);
                     -ms-transform: rotateZ(-2deg);
                     transform: rotateZ(-2deg);
-                    
+
 
                     .album-text {
                         color: #d09b4a;
@@ -694,6 +694,7 @@ header {
 
                         @media (max-width: 991px) {
                             color: white;
+                            background-color: rgba(34, 34, 34, 0.6);
                         }
 
                     }
@@ -733,7 +734,7 @@ header {
                 margin-top: 10px;
             }
 
-            
+
             @media (min-width: 768px) and (max-width: 991px) {
                 padding-bottom: 70px;
             }
@@ -744,16 +745,9 @@ header {
             }
         }
 
-        .album-h4 {
-            font-family: 'Assistant', sans-serif;
-            font-size: 30px;
-            font-weight: bold;
-            margin-bottom: 50px;
-        }
 
         .row {
-            padding-bottom: 140px;
-
+            padding-bottom: 100px;
 
             .album-img {
 
@@ -766,17 +760,33 @@ header {
                         height: 250px;
                         width: 250px;
                     }
-                }                
+                }
 
                 @media (max-width: 767px) {
-                    order: 2;
-                    margin-top: 50px;
+                    display: none;
                 }
             }
 
+
             .album-bloc {
-            
+                .album-h4 {
+                    font-family: 'Assistant', sans-serif;
+                    font-size: 30px;
+                    font-weight: bold;
+                    text-align: center;
+                    margin-bottom: 20px;
+
+
+                    @media (min-width: 768px) and (max-width: 991px) {
+                        margin-bottom: 0;
+                        font-size: 27px;
+                        text-align: left;
+                        margin-left: 10%;
+                    }
+                }
+
                 ul {
+                    width: 120%;
 
                     li {
                         font-family: 'Assistant', sans-serif;
@@ -789,9 +799,18 @@ header {
                             font-family: 'Assistant', sans-serif;
                             font-size: 20px;
                             font-weight: 400;
+
+                            @media (min-width: 768px) and (max-width: 991px) {
+                                font-size: 15px;
+                            }
+                        }
+
+                        @media (min-width: 768px) and (max-width: 991px) {
+                            font-size: 15px;
+                            margin-top: 4px;
                         }
                     }
-                    
+
                     @media (min-width: 768px) and (max-width: 991px) {
                         margin-top: 20px;
                     }
@@ -810,6 +829,98 @@ header {
 
     }
 }
+
+// suggestions 
+
+#suggestions {
+    background: #eee;
+    padding-bottom: 80px;
+
+    h2 {
+        padding-bottom: 30px;
+        font-family: 'Poppins', sans-serif;
+        font-weight: bold;
+        font-size: 30px;
+        text-align: center;
+    }
+
+    .container {
+
+        .row {
+            .suggestions {    
+
+                .suggestions-img {
+                    display: flex;
+                    justify-content: center;
+
+                    img {
+                        height: 200px;
+                        width: 200px;
+
+                        @media (min-width: 768px) and (max-width: 991px) {
+                            height: 150px;
+                            width: 150px;
+                            margin-top: 15px;
+                        }
+
+                        @media (max-width: 767px) {
+                            height: 150px;
+                            width: 150px;
+                            margin-top: 15px;
+                        }
+                    }
+                }
+
+                .suggestions-album {
+                    position: absolute;
+                    bottom: 1px;
+                    left: 7.5%;
+                    width: 85.9%;
+                    z-index: 900;
+                    color: white;
+                    background-color: rgba(34, 34, 34, 0.6);
+
+                    .suggestions-title {
+
+                        @media (max-width: 991px) {
+                            font-size: 18px;
+                        }
+                    }
+
+                    .suggestions-excerpt {
+
+                        @media (max-width: 991px) {
+                           font-size: 12px;
+                        }
+                    }
+
+                    .suggestions-album:hover {
+                        color:  #d09b4a;
+                    }
+
+                    @media (min-width: 768px) and (max-width: 991px) {
+                        bottom: 1px;
+                        left: 29%;
+                        width: 42%;
+                    }
+
+                    @media (max-width: 767px) {
+                        bottom: 1px;
+                        left: 23%;
+                        width: 55%;
+                    }
+                }
+
+                .suggestions:hover {
+                    color:  #d09b4a;
+                    border: 1px solid #d09b4a;
+                }
+            }
+        }
+    }
+}
+
+
 
 // partie formulaire + map
 #form-map {
