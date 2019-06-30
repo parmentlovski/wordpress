@@ -86,6 +86,12 @@ header .navbar div ul li a {
   font-size: 30px;
 }
 
+@media (min-width: 992px) and (max-width: 1199px) {
+  header .navbar div ul li a {
+    font-size: 20px;
+  }
+}
+
 @media (min-width: 577px) and (max-width: 991px) {
   header .navbar div ul li a {
     font-size: 15px;
@@ -100,6 +106,12 @@ header .navbar div ul li a {
 
 header .navbar div ul li a:hover {
   color: #d09b4a !important;
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  header .navbar div ul {
+    padding-left: 30px;
+  }
 }
 
 @media (max-width: 991px) {
@@ -284,7 +296,7 @@ header .navbar div ul li a:hover {
   }
   #music .container .row .categorie:nth-child(3),
   #music .container .row .categorie:last-child {
-    margin-top: 100px;
+    margin-top: 70px;
     margin-bottom: 20px;
   }
 }
@@ -375,6 +387,12 @@ header .navbar div ul li a:hover {
   width: 100%;
 }
 
+@media (min-width: 768px) and (max-width: 991px) {
+  #actus .container .row article .article-post .post-img img {
+    height: 300px;
+  }
+}
+
 @media (max-width: 767px) {
   #actus .container .row article .article-post .post-img img {
     height: 200px;
@@ -393,7 +411,7 @@ header .navbar div ul li a:hover {
   content: " ";
 }
 
-@media (max-width: 767px) {
+@media (max-width: 991px) {
   #actus .container .row article .article-post .post-img::after {
     display: none;
   }
@@ -447,7 +465,7 @@ header .navbar div ul li a:hover {
   font-weight: lighter;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 991px) {
   #actus .container .row article .article-post .post-position-bottom .post-out div:nth-child(3) {
     display: none;
   }
@@ -484,7 +502,7 @@ header .navbar div ul li a:hover {
   opacity: 1;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 991px) {
   #actus .container .row article .article-post:hover .post-out {
     -webkit-transform: none;
             transform: none;
@@ -497,7 +515,7 @@ header .navbar div ul li a:hover {
 
 #list-post .container h2 {
   padding-top: 80px;
-  padding-bottom: 60px;
+  padding-bottom: 80px;
   font-family: 'Poppins', sans-serif;
   font-weight: bold;
   font-size: 45px;
@@ -510,32 +528,44 @@ header .navbar div ul li a:hover {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 10px;
+  margin-top: 15px;
 }
 
-@media (max-width: 768px) {
+@media (min-width: 577px) and (max-width: 768px) {
   #list-post .container h2 {
-    font-size: 40px;
+    font-size: 33px;
   }
 }
 
 @media (max-width: 576px) {
   #list-post .container h2 {
     padding-top: 40px;
-    padding-bottom: 30px;
+    padding-bottom: 60px;
+    font-size: 33px;
   }
 }
 
 #list-post .container .row h4 {
   font-family: 'Poppins', sans-serif;
   font-size: 22px;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
   padding-left: 9.6%;
 }
 
-@media (max-width: 991px) {
+@media (min-width: 768px) and (max-width: 991px) {
   #list-post .container .row h4 {
+    font-size: 19px;
     padding-left: 0;
+    text-align: center;
+  }
+}
+
+@media (max-width: 767px) {
+  #list-post .container .row h4 {
+    font-size: 17px;
+    padding-left: 0;
+    margin-bottom: 20px;
+    text-align: center;
   }
 }
 
@@ -547,8 +577,10 @@ header .navbar div ul li a:hover {
 }
 
 #list-post .container .row .single-content {
-  margin-top: 33px;
-  margin-bottom: 33px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 #list-post .container .row .single-content a {
@@ -710,6 +742,12 @@ header .navbar div ul li a:hover {
   margin-top: 10px;
 }
 
+@media (min-width: 768px) and (max-width: 991px) {
+  #list-album .container h2 {
+    padding-bottom: 70px;
+  }
+}
+
 @media (max-width: 767px) {
   #list-album .container h2 {
     padding-top: 70px;
@@ -717,14 +755,28 @@ header .navbar div ul li a:hover {
   }
 }
 
+#list-album .container .album-h4 {
+  font-family: 'Assistant', sans-serif;
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 50px;
+}
+
 #list-album .container .row {
   padding-bottom: 140px;
 }
 
-#list-album .container .row .album-img {
-  margin-top: 20px;
-  height: 200px;
-  width: 300px;
+#list-album .container .row .album-img img {
+  height: 325px;
+  width: 325px;
+  margin-top: 10px;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  #list-album .container .row .album-img img {
+    height: 250px;
+    width: 250px;
+  }
 }
 
 @media (max-width: 767px) {
@@ -734,17 +786,6 @@ header .navbar div ul li a:hover {
             order: 2;
     margin-top: 50px;
   }
-}
-
-#list-album .container .row .album-bloc h4 {
-  font-family: 'Assistant', sans-serif;
-  font-size: 30px;
-  font-weight: bold;
-  margin-top: 10px;
-}
-
-#list-album .container .row .album-bloc ul {
-  margin-top: 9px;
 }
 
 #list-album .container .row .album-bloc ul li {
@@ -759,6 +800,12 @@ header .navbar div ul li a:hover {
   font-family: 'Assistant', sans-serif;
   font-size: 20px;
   font-weight: 400;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  #list-album .container .row .album-bloc ul {
+    margin-top: 20px;
+  }
 }
 
 @media (max-width: 767px) {
@@ -805,12 +852,14 @@ header .navbar div ul li a:hover {
   #form-map .container-fluid .row .form form h3 {
     padding-left: 0;
     text-align: center;
-    padding-bottom: 30px;
+    padding-top: 30px;
+    padding-bottom: 50px;
   }
 }
 
 @media (max-width: 768px) {
   #form-map .container-fluid .row .form form h3 {
+    padding-top: 30px;
     padding-left: 0;
     text-align: center;
   }
@@ -826,16 +875,9 @@ header .navbar div ul li a:hover {
 
 @media (min-width: 769px) and (max-width: 991px) {
   #form-map .container-fluid .row .form form input {
-    width: 30%;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
-  }
-}
-
-@media (max-width: 768px) {
-  #form-map .container-fluid .row .form form input {
-    width: 100%;
-    height: 20px;
   }
 }
 
@@ -846,15 +888,8 @@ header .navbar div ul li a:hover {
 
 @media (min-width: 769px) and (max-width: 991px) {
   #form-map .container-fluid .row .form form textarea {
-    width: 30%;
     margin-left: auto;
     margin-right: auto;
-  }
-}
-
-@media (max-width: 768px) {
-  #form-map .container-fluid .row .form form textarea {
-    width: 100%;
   }
 }
 
@@ -911,6 +946,12 @@ header .navbar div ul li a:hover {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  #form-map .container-fluid .row .form {
+    padding-bottom: -30px;
   }
 }
 
@@ -982,7 +1023,7 @@ footer .container-fluid .row p span {
 
 @media (max-width: 768px) {
   footer .container-fluid .row p {
-    margin-top: 80px;
+    margin-top: 10px;
     font-size: 18px;
   }
 }
