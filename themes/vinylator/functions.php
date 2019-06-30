@@ -16,6 +16,7 @@ function vinylator_scripts()
 
 
     // chargement des scripts 
+    wp_enqueue_script('formulaire', get_template_directory_uri() . '/js/form.js', array('jquery'), 'VINYLATOR_VERSION', true);
     wp_enqueue_script('vinylator_admin_script', get_template_directory_uri() . '/js/animation.js', array('jquery'), 'VINYLATOR_VERSION', true);
     wp_enqueue_script('vinylator-map', get_template_directory_uri() . '/js/map.js', array('jquery'), 'VINYLATOR_VERSION', true);
     wp_enqueue_script('script', get_template_directory_uri() . '/js/script.js', array('jquery'), 'VINYLATOR_VERSION', true);
@@ -29,19 +30,6 @@ function vinylator_scripts()
     wp_localize_script('script', 'ajaxurl', admin_url('admin-ajax.php'));
 }
 add_action('wp_enqueue_scripts', 'vinylator_scripts');
-
-
-// chargement dans l'admin 
-
-
-// function vinylator_admin_scripts()
-// {
-
-//     //chargement des styles 
-//     // wp_enqueue_style('bootstrap-adm-core', get_template_directory_uri() . '/css/bootstrap.min.css', array(), 'VINYLATOR_VERSION');
-// }
-// add_action('admin_init', 'vinylator_admin_scripts');
-
 
 
 // -----------------------------------  UTILITAIRES  ------------------------------------------//
@@ -67,13 +55,6 @@ function vinylator_the_custom_logo()
         the_custom_logo();
     }
 }
-
-// function remove_more_link_scroll($link)
-// {
-//     $link = preg_replace('|#more-[0-9]+|', '', $link);
-//     return $link;
-// }
-// add_filter('the_content_more_link', 'remove_more_link_scroll');
 
 // --------------------------------  CUSTOM POST TYPE  ----------------------------------------//
 
@@ -481,7 +462,6 @@ add_action('admin_menu', 'adress_setup_menu');
 
 function vinylator_save_contact()
 {
-    global $wpdb;
 
     if (isset($_POST['message-submit']) && $_POST['hidden'] === "1") {
 
@@ -498,7 +478,7 @@ function vinylator_save_contact()
 
         global $wp;
         $wp->add_query_var('send');
-        $url = get_page_by_title('home');
+        $url = get_page_by_title('');
         wp_redirect(get_permalink($url) . '?send=' . $textSend);
 
         exit();

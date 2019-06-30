@@ -140,11 +140,15 @@ $query = new WP_Query(array(
                     <textarea id="message" name="message" placeholder="Votre message" rows="5" cols="40"></textarea>
                     <input type="hidden" name="hidden" value="1">
                     <button name="message-submit">Envoyer</button>
+                    <span id="erreur"></span>
+                    <span id="erreurName"></span>
+                    <span id="erreurEmail"></span>
+                    <span id="erreurMessage"></span>
                 </form>
-               
 
-                <?php 
-                if( isset($_GET['send']) && $_GET['send'] === "sent") {
+
+                <?php
+                if (isset($_GET['send']) && $_GET['send'] === "sent") {
                     echo "Votre email est bien partie";
                 } else if (isset($_GET['send']) && $_GET['send'] === "notSent") {
                     echo "Le serveur du mail ne marche plus !!! désolé";
@@ -169,7 +173,7 @@ $resultats = $wpdb->get_results("SELECT * FROM {$wpdb->prefix}options WHERE opti
 foreach ($resultats as $post) { }
 ?>
 <script>
-var adress_client = '<?PHP echo $post->option_value; ?>';
+    var adress_client = '<?PHP echo $post->option_value; ?>';
     console.log(adress_client);
 </script>
 <?php get_footer(); ?>
