@@ -222,8 +222,7 @@ function info_album($post)
         <input id="compositeur" style="width:30%; margin-bottom:20px;" type="text" name="compositeur" value="<?php echo $compositeur; ?>" />
 
         <label for="prix" style="margin-bottom:5px;">Prix :</label>
-        <input id="prix" style="width:30%; margin-bottom:20px;" type="text" name="prix" value="<?php echo $prix; ?>
-            " />
+        <input id="prix" style="width:30%; margin-bottom:20px;" type="text" name="prix" value="<?php echo $prix; ?>" />
     </div>
 
 <?php
@@ -383,12 +382,14 @@ function mon_action_album()
     if ($ajax_query->have_posts()) :
         while ($ajax_query->have_posts()) : $ajax_query->the_post(); ?>
             <article class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-4">
-                <div class="album-content">
+                <div class="album-content swing">
                     <a href="<?php echo the_permalink(); ?>">
-                        <div class="album-image"><?php the_post_thumbnail(array(200,200)); ?></div>
-                        <div class="album-title"><?php the_title(); ?></div>
-                        <div class="album-excerpt"><?php the_excerpt(); ?></div>
-                        <div class="album-price"><?php echo get_post_meta($post->ID, '_prix', true); ?></div>
+                        <div class="album-image"><?php the_post_thumbnail(array(250, 250)); ?></div>
+                        <div class="album-text">
+                            <div class="album-title"><?php the_title(); ?></div>
+                            <div class="album-excerpt"><?php the_excerpt(); ?></div>
+                            <div class="album-price"><?php echo get_post_meta($post->ID, '_prix', true); ?></div>
+                        </div>
                     </a>
                 </div>
             </article>
@@ -404,6 +405,7 @@ add_action('wp_ajax_nopriv_mon_action_album', 'mon_action_album');
 function load_more_album()
 
 {
+    global $post;
     global $ajax_query;
     $offsetAlbum = $_POST['offset'];
 
@@ -425,18 +427,16 @@ function load_more_album()
 
     if ($ajax_query->have_posts()) :
         while ($ajax_query->have_posts()) : $ajax_query->the_post(); ?>
-            <article class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-4">
-                <p class="album-title"><?php the_title(); ?></p>
-                <div class="album-content">
-                    <a href="<?php the_permalink(); ?>" rel="bookmark">
-                        <?php the_modified_date(); ?><br />
-                        <?php the_post_thumbnail(array(100, 100)); ?>
-                        <?php the_category(); ?>
+           <article class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-4">
+                <div class="album-content swing">
+                    <a href="<?php echo the_permalink(); ?>">
+                        <div class="album-image"><?php the_post_thumbnail(); ?></div>
+                        <div class="album-text">
+                            <div class="album-title"><?php the_title(); ?></div>
+                            <div class="album-excerpt"><?php the_excerpt(); ?></div>
+                            <div class="album-price"><?php echo get_post_meta($post->ID, '_prix', true); ?></div>
+                        </div>
                     </a>
-                </div>
-                </a>
-                <div class="album-out">
-                    <p class="album-excerpt"><?php the_excerpt(); ?></p>
                 </div>
             </article>
         <?php endwhile;

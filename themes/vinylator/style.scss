@@ -34,6 +34,10 @@ h1 {
     }
 }
 
+h2:hover {
+    cursor: default;
+}
+
 h3 {
     font-family: 'Assistant', sans-serif;
     font-size: 28px;
@@ -54,6 +58,7 @@ header {
         min-height: 100px;
 
         .navbar-brand {
+
             img {
                 height: 75px;
                 width: 50px;
@@ -76,7 +81,6 @@ header {
             }
 
             ul {
-                padding-bottom: 37px;
 
                 li {
                     padding-left: 75px;
@@ -88,8 +92,12 @@ header {
                         font-weight: bold;
                         font-size: 30px;
 
-                        @media (max-width: 991px) {
+                        @media (min-width: 577px) and (max-width: 991px) {
                             font-size: 15px;
+                        }
+
+                        @media (max-width: 576px) {
+                            font-size: 12px;
                         }
                     }
 
@@ -97,9 +105,10 @@ header {
                         color: #d09b4a !important;
                     }
 
-                    @media (max-width: 768px) {
-                        padding-right: 20px;
-                    }
+                    // @media (max-width: 768px) {
+                    //     // flex-direction: column;
+                    //     // padding-right: 20px;
+                    // }
                 }
 
                 @media (max-width: 991px) {
@@ -592,49 +601,96 @@ header {
             text-align: center;
             // margin-left: 9%;
 
-            .article {
+            article {
+                overflow: hidden;
 
-                .album-content { 
+                .album-content {
+                    margin-bottom: 70px;
+
                     a {
                         text-decoration: none;
                         color: #222;
-                    }
 
-                    .album-image {
-                        display: none;
-                    }
+                        // .album-image {
 
-                    .album-image::after {
-                        position: relative;
-                        width: 78.8%;
-                        height: 200px;
-                        transition: all 0.3s cubic-bezier(0.41, 0.094, 0.54, 0.07) 0s;
-                        background-color: rgba(0, 0, 0, 0.1);
-                        content: " "
-                    }
+                        // }
+                        img {
+                            height: 250px;
+                            width: 250px;
 
-                    .album-title {
-                        // margin-left: -33%;
-                        margin-bottom: 30px;
-                        font-family: 'Assistant', sans-serif;
-                        font-weight: bold;
-                        font-size: 30px;
-                        color: #222;
-                    }
+                            @media (max-width: 767px) {
+                                height: 200px;
+                                width: 200px;
+                            }
 
-                    .album-excerpt {
-                        font-family: 'Assistant', sans-serif;
-                        font-weight: lighter;
-                        font-size: 20px;
-                    }
+                        }
 
-                    .album-price {
-                        font-family: 'Assistant', sans-serif;
-                        font-weight: lighter;
-                        font-size: 20px;
+                        .album-text {
+                            position: absolute;
+                            bottom: 70px;
+                            left: 17%;
+                            width: 66%;
+                            z-index: 900;
+                            color: white;
+                            background-color: rgba(34, 34, 34, 0.6);
+
+
+                            .album-title {
+                                margin-bottom: 5px;
+                                font-family: 'Assistant', sans-serif;
+                                font-weight: bold;
+                                font-size: 20px;
+                            }
+
+                            .album-excerpt {
+                                font-family: 'Assistant', sans-serif;
+                                font-weight: lighter;
+                                font-size: 15px;
+                            }
+
+                            .album-price {
+                                font-family: 'Assistant', sans-serif;
+                                font-weight: lighter;
+                                font-size: 18px;
+                                margin-top: -15px;
+                            }
+
+                            @media (min-width: 568px) and (max-width: 767px) {
+                                width: 74%;
+                                left: 13%;
+                            }
+
+                            @media (max-width: 567px) {
+                                width: 37.2%;
+                                left: 31.5%;
+                            }
+                        }
                     }
                 }
+
+                .album-content:hover {
+
+                    -webkit-transform: rotateZ(-2deg);
+                    -ms-transform: rotateZ(-2deg);
+                    transform: rotateZ(-2deg);
+
+                    .album-text {
+                        color: #d09b4a;
+
+                        @media (max-width: 991px) {
+                            color: white;
+                        }
+
+                    }
+
+                    @media (max-width: 991px) {
+                        transform: none;
+                    }
+                }
+
+
             }
+
 
 
 
@@ -679,21 +735,24 @@ header {
                 margin-top: 10px;
             }
 
-            @media (max-width: 576px) {
-                padding-top: 100px;
-                padding-bottom: 80px;
+            @media (max-width: 767px) {
+                padding-top: 70px;
+                padding-bottom: 50px;
             }
         }
 
         .row {
-            padding-bottom: 90px;
-
-            @media (max-width: 576px) {
-                padding-bottom: 100px;
-            }
+            padding-bottom: 140px;
 
             .album-img {
                 margin-top: 20px;
+                height: 200px;
+                width: 300px;
+
+                @media (max-width: 767px) {
+                    order: 2;
+                    margin-top: 50px;
+                }
             }
 
             .album-bloc {
@@ -702,13 +761,17 @@ header {
                     font-family: 'Assistant', sans-serif;
                     font-size: 30px;
                     font-weight: bold;
+                    margin-top: 10px;
                 }
 
                 ul {
+                    margin-top: 9px;
+
                     li {
                         font-family: 'Assistant', sans-serif;
                         font-size: 20px;
                         font-weight: bold;
+                        margin-top: 5px;
 
                         span {
                             margin-left: 5%;
@@ -717,9 +780,18 @@ header {
                             font-weight: 400;
                         }
                     }
+
+                    @media (max-width: 767px) {
+                        order: 1;
+                        margin-left: 12%;
+                    }
                 }
             }
+            @media (max-width: 767px) {
+                padding-bottom: 70px;
+            }
         }
+
     }
 }
 
@@ -903,6 +975,10 @@ footer {
     }
 }
 
+footer:hover {
+    cursor: default;
+}
+
 // Animations 
 
 .muzieknootjes {
@@ -949,5 +1025,69 @@ footer {
     100% {
         transform: scale(1.5) translate(60%, -60%);
         opacity: 0;
+    }
+}
+
+@-webkit-keyframes swing {
+    15% {
+        -webkit-transform: translateX(5px);
+        transform: translateX(5px);
+    }
+
+    30% {
+        -webkit-transform: translateX(-5px);
+        transform: translateX(-5px);
+    }
+
+    50% {
+        -webkit-transform: translateX(3px);
+        transform: translateX(3px);
+    }
+
+    65% {
+        -webkit-transform: translateX(-3px);
+        transform: translateX(-3px);
+    }
+
+    80% {
+        -webkit-transform: translateX(2px);
+        transform: translateX(2px);
+    }
+
+    100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+
+@keyframes swing {
+    15% {
+        -webkit-transform: translateX(5px);
+        transform: translateX(5px);
+    }
+
+    30% {
+        -webkit-transform: translateX(-5px);
+        transform: translateX(-5px);
+    }
+
+    50% {
+        -webkit-transform: translateX(3px);
+        transform: translateX(3px);
+    }
+
+    65% {
+        -webkit-transform: translateX(-3px);
+        transform: translateX(-3px);
+    }
+
+    80% {
+        -webkit-transform: translateX(2px);
+        transform: translateX(2px);
+    }
+
+    100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
     }
 }

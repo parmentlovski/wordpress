@@ -41,7 +41,7 @@
                     &#9835;
                     &#9834;
                 </div>
-                <div class="collapse navbar-collapse offset-xs-7 offset-sm-8 offset-md-9 offset-lg-0 offset-xl-0" id="navbarTogglerDemo03">
+                <div class="collapse navbar-collapse offset-7 offset-sm-8 offset-md-9 offset-lg-0 offset-xl-0" id="navbarTogglerDemo03">
                     <?php
                     wp_nav_menu(array('theme_location' => 'header-menu'));
                     ?>

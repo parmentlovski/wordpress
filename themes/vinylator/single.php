@@ -14,10 +14,10 @@
                 <h2><?php the_title(); ?></h2>
 
                 <div class="row d-flex justify-content-center">
-                    <div class='album-img col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4'>
-                        <?php the_post_thumbnail(array(300, 300)); ?>
+                    <div class='album-img col-auto col-sm-auto col-md-4 col-lg-4  col-xl-4'>
+                        <?php the_post_thumbnail(); ?>
                     </div>
-                    <div class="album-bloc d-flex flex-column justify-content-center col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                    <div class="album-bloc d-flex flex-column justify-content-center col-12 col-sm-12 offset-md-1 col-md-7 offset-lg-1 col-lg-4 offset-xl-1 col-xl-4">
                         <h4 class="text-center"><?php the_excerpt(); ?></h4>
                         <ul>
                             <li>Date de sortie :  <span><?php echo get_post_meta($post->ID, '_date-sortie', true); ?></span></li>
