@@ -11,7 +11,7 @@
                 the_post();
                 ?>
 
-                <h2><?php the_title(); ?></h2>
+                <h2><?php the_title(); ?><span class="underline"></span></h2>
                 <div class="album-h4 text-center"><?php the_excerpt(); ?></div>
 
                 <div class="row d-flex justify-content-center">

@@ -3,8 +3,8 @@ var mondayLayer = L.geoJSON();
 
 
  // On initialise la latitude et la longitude de Paris (centre de la carte)
-var lat = 47.95;
-var lon = 5.349903;
+var lat = 47.237829;
+var lon = 6.0240539;
 
 function Goto(address) {
 fetch('https://nominatim.openstreetmap.org/search?format=json&limit=3&q=' + address) // ('url') par défaut méthode get

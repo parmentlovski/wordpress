@@ -30,7 +30,6 @@ $query = new WP_Query(array(
                     <a href="<?php the_permalink(); ?>" target="_blank">
                         <img class="d-block w-100" src="http://localhost:8080/wp-content/uploads/2019/06/fond_3.jpg" alt="Premier slide" width="960" height="640">
                         <div class="carousel-caption d-none d-md-block">
-                           
                             <div class="content-slider">
                                 <p><?php the_excerpt(); ?></p> <!-- contenu -->
                             </div>
@@ -83,7 +82,7 @@ $query = new WP_Query(array(
     <!-- DEBUT CHOIX MUSIQUES -->
     <div class="container">
 
-        <h1>CHOISISSEZ VOTRE STYLE<span class="small_underline"></h1>
+        <h1>CHOISISSEZ VOTRE STYLE<span class="underline"></span></h1>
 
         <div class="row">
             <!-- BLUES -->
@@ -135,7 +134,7 @@ $query = new WP_Query(array(
     <!-- DEBUT FORMULAIRE/MAP -->
     <div class="container-fluid ml-0 mr-0 pl-0 pr-0">
         <div class="row mr-0 ml-0 pl-0 pr-0">
-            <div class="form col-xs-12 col-sm-12 col-md-12 col-lg-3 col-xl-3 ">
+            <div class="form col-xs-12 col-sm-12 col-md-12 offset-lg-1 col-lg-3 offset-xl-1 col-xl-3">
                 <form>
                     <h3>Contact</h3>
                     <input type="text" id="name" name="name" placeholder="Votre nom">
@@ -154,7 +153,7 @@ $query = new WP_Query(array(
                 } ?>
 
             </div>
-            <div class="map col-xs-12 col-sm-12 col-md-12 offset-lg-1 offset-xl-1 col-lg-8 col-xl-8">
+            <div class="map col-xs-12 col-sm-12 col-md-12 offset-lg-1 offset-xl-1 col-lg-6 col-xl-6">
                 <!-- MAP -->
                 <h3>Nous sommes ici</h3>
                 <div id="map" class="mr-0 ml-0 pl-0 pr-0">

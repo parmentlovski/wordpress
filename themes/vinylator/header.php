@@ -20,7 +20,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Vinylator : le spécialiste du vinyle </title>
-    <link href="https://fonts.googleapis.com/css?family=Assistant:400,600,700|Poppins:600,700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Assistant:400,600,700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Poppins:600,700&display=swap" rel="stylesheet"> 
     <?php wp_head(); ?>
 </head>
 
@@ -35,7 +36,7 @@
                 <a class="navbar-brand" href="http://localhost:8080/">
                     <?php $custom_logo_id = get_theme_mod('custom_logo');
                     $custom_logo_url = wp_get_attachment_image_url($custom_logo_id, 'full');
-                    echo '<img src="http://localhost:8080/wp-content/uploads/2019/06/gramophone-150x150.png"' . esc_url($custom_logo_url) . '" alt="Le logo du site" width="150" height=150>'; ?>
+                    echo '<img src="http://localhost:8080/wp-content/uploads/2019/06/gramophone-150x150.png" ' . esc_url($custom_logo_url) . ' " alt="Le logo du site" width="150" height=150>'; ?>
                 </a>
                 <div class="noot-4">
                     &#9835;

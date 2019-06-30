@@ -25,7 +25,7 @@ h1 {
   text-align: center;
 }
 
-h1 .small_underline {
+h1 .underline {
   border: 2px solid #222;
   width: 15%;
   display: block;
@@ -198,15 +198,6 @@ header .navbar div ul li a:hover {
 }
 
 #slider .carousel .carousel-item .carousel-caption .content-slider {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   background-color: rgba(34, 34, 34, 0.6);
   z-index: 999;
   height: 70px;
@@ -220,7 +211,7 @@ header .navbar div ul li a:hover {
 #slider .carousel .carousel-item .carousel-caption .content-slider p {
   font-family: 'Assistant', sans-serif;
   font-weight: bold;
-  font-size: 22px;
+  font-size: 24px;
 }
 
 @media (min-width: 577px) and (max-width: 990px) {
@@ -247,7 +238,7 @@ header .navbar div ul li a:hover {
 
 #music .container .row .categorie .style {
   font-family: 'Assistant', sans-serif;
-  font-family: 40px;
+  font-size: 32px;
   font-weight: bold;
   color: #222222;
   text-align: center;
@@ -346,7 +337,7 @@ header .navbar div ul li a:hover {
   text-align: center;
 }
 
-#actus .container h2 .small_underline {
+#actus .container h2 .underline {
   border: 2px solid #222;
   width: 15%;
   display: block;
@@ -522,7 +513,7 @@ header .navbar div ul li a:hover {
   text-align: center;
 }
 
-#list-post .container h2 .small_underline {
+#list-post .container h2 .underline {
   border: 2px solid #222;
   width: 15%;
   display: block;
@@ -616,7 +607,7 @@ header .navbar div ul li a:hover {
   text-align: center;
 }
 
-#category .container h2 .small_underline {
+#category .container h2 .underline {
   border: 2px solid #222;
   width: 15%;
   display: block;
@@ -705,6 +696,7 @@ header .navbar div ul li a:hover {
 
 #category .container .row article .album-content:hover .album-text {
   color: #d09b4a;
+  background-color: rgba(34, 34, 34, 0.8);
 }
 
 @media (max-width: 991px) {
@@ -733,7 +725,7 @@ header .navbar div ul li a:hover {
   text-align: center;
 }
 
-#list-album .container h2 .small_underline {
+#list-album .container h2 .underline {
   border: 2px solid #222;
   width: 15%;
   display: block;
@@ -844,7 +836,7 @@ header .navbar div ul li a:hover {
 
 #form-map .container-fluid .row .form form h3 {
   text-align: center;
-  color: eee;
+  color: #eee;
   margin-bottom: -20px;
 }
 
@@ -946,12 +938,6 @@ header .navbar div ul li a:hover {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-  }
-}
-
-@media (max-width: 768px) {
-  #form-map .container-fluid .row .form {
-    padding-bottom: -30px;
   }
 }
 
@@ -1112,54 +1098,54 @@ footer:hover {
 @-webkit-keyframes swing {
   15% {
     -webkit-transform: translateX(5px);
-    transform: translateX(5px);
+            transform: translateX(5px);
   }
   30% {
     -webkit-transform: translateX(-5px);
-    transform: translateX(-5px);
+            transform: translateX(-5px);
   }
   50% {
     -webkit-transform: translateX(3px);
-    transform: translateX(3px);
+            transform: translateX(3px);
   }
   65% {
     -webkit-transform: translateX(-3px);
-    transform: translateX(-3px);
+            transform: translateX(-3px);
   }
   80% {
     -webkit-transform: translateX(2px);
-    transform: translateX(2px);
+            transform: translateX(2px);
   }
   100% {
     -webkit-transform: translateX(0);
-    transform: translateX(0);
+            transform: translateX(0);
   }
 }
 
 @keyframes swing {
   15% {
     -webkit-transform: translateX(5px);
-    transform: translateX(5px);
+            transform: translateX(5px);
   }
   30% {
     -webkit-transform: translateX(-5px);
-    transform: translateX(-5px);
+            transform: translateX(-5px);
   }
   50% {
     -webkit-transform: translateX(3px);
-    transform: translateX(3px);
+            transform: translateX(3px);
   }
   65% {
     -webkit-transform: translateX(-3px);
-    transform: translateX(-3px);
+            transform: translateX(-3px);
   }
   80% {
     -webkit-transform: translateX(2px);
-    transform: translateX(2px);
+            transform: translateX(2px);
   }
   100% {
     -webkit-transform: translateX(0);
-    transform: translateX(0);
+            transform: translateX(0);
   }
 }
 /*# sourceMappingURL=style.css.map */

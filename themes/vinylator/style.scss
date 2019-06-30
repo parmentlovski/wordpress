@@ -24,7 +24,7 @@ h1 {
     padding-bottom: 90px;
     text-align: center;
 
-    .small_underline {
+    .underline {
         border: 2px solid #222;
         width: 15%;
         display: block;
@@ -197,10 +197,6 @@ header {
                 }
 
                 .content-slider {
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    // width: 143%;
                     background-color: rgba(34, 34, 34, 0.6);
                     z-index: 999;
                     height: 70px;
@@ -215,7 +211,7 @@ header {
                     p {
                         font-family: 'Assistant', sans-serif;
                         font-weight: bold;
-                        font-size: 22px;
+                        font-size: 24px;
 
                         @media (min-width: 577px) and (max-width: 990px) {
                             font-size: 15px;
@@ -246,7 +242,7 @@ header {
 
                 .style {
                     font-family: 'Assistant', sans-serif;
-                    font-family: 40px;
+                    font-size: 32px;
                     font-weight: bold;
                     color: #222222;
                     text-align: center;
@@ -343,7 +339,7 @@ header {
             font-size: 50px;
             text-align: center;
 
-            .small_underline {
+            .underline {
                 border: 2px solid #222;
                 width: 15%;
                 display: block;
@@ -520,7 +516,7 @@ header {
             font-size: 45px;
             text-align: center;
 
-            .small_underline {
+            .underline {
                 border: 2px solid #222;
                 width: 15%;
                 display: block;
@@ -604,7 +600,7 @@ header {
             font-size: 50px;
             text-align: center;
 
-            .small_underline {
+            .underline {
                 border: 2px solid #222;
                 width: 15%;
                 display: block;
@@ -690,9 +686,11 @@ header {
                     -webkit-transform: rotateZ(-2deg);
                     -ms-transform: rotateZ(-2deg);
                     transform: rotateZ(-2deg);
+                    
 
                     .album-text {
                         color: #d09b4a;
+                        background-color: rgba(34, 34, 34, 0.8);
 
                         @media (max-width: 991px) {
                             color: white;
@@ -726,7 +724,7 @@ header {
             font-size: 50px;
             text-align: center;
 
-            .small_underline {
+            .underline {
                 border: 2px solid #222;
                 width: 15%;
                 display: block;
@@ -833,7 +831,7 @@ header {
                     h3 {
                         // padding-left: 43%;
                         text-align: center;
-                        color: eee;
+                        color: #eee;
                         margin-bottom: -20px;
 
                         @media (min-width: 769px) and (max-width: 991px) {
@@ -915,10 +913,6 @@ header {
                     display: flex;
                     justify-content: center;
                 }
-
-                @media (max-width: 768px) {
-                    padding-bottom: -30px;
-                }
             }
 
             .map {
@@ -991,7 +985,10 @@ footer:hover {
     cursor: default;
 }
 
-// Animations 
+
+// ANIMATIONS
+
+// notes de musiques 
 
 .muzieknootjes {
     display: block;
@@ -1040,66 +1037,57 @@ footer:hover {
     }
 }
 
+
+// mouvement de l'album au hover
+
 @-webkit-keyframes swing {
     15% {
-        -webkit-transform: translateX(5px);
         transform: translateX(5px);
     }
 
     30% {
-        -webkit-transform: translateX(-5px);
         transform: translateX(-5px);
     }
 
     50% {
-        -webkit-transform: translateX(3px);
         transform: translateX(3px);
     }
 
     65% {
-        -webkit-transform: translateX(-3px);
         transform: translateX(-3px);
     }
 
     80% {
-        -webkit-transform: translateX(2px);
         transform: translateX(2px);
     }
 
     100% {
-        -webkit-transform: translateX(0);
         transform: translateX(0);
     }
 }
 
 @keyframes swing {
     15% {
-        -webkit-transform: translateX(5px);
         transform: translateX(5px);
     }
 
     30% {
-        -webkit-transform: translateX(-5px);
         transform: translateX(-5px);
     }
 
     50% {
-        -webkit-transform: translateX(3px);
         transform: translateX(3px);
     }
 
     65% {
-        -webkit-transform: translateX(-3px);
         transform: translateX(-3px);
     }
 
     80% {
-        -webkit-transform: translateX(2px);
         transform: translateX(2px);
     }
 
     100% {
-        -webkit-transform: translateX(0);
         transform: translateX(0);
     }
 }
