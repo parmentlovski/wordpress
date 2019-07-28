@@ -1,4 +1,9 @@
 // règles générales
+
+body {
+    background-color: #222 !important;
+}
+
 li {
     list-style: none;
 
@@ -97,11 +102,11 @@ header {
                         }
 
                         @media (min-width: 577px) and (max-width: 991px) {
-                            font-size: 15px;
+                            font-size: 19px;
                         }
 
                         @media (max-width: 576px) {
-                            font-size: 12px;
+                            font-size: 17px;
                         }
                     }
 
@@ -168,7 +173,7 @@ header {
                 height: 500px;
 
                 @media (min-width: 991px) {
-                    height: 82vh; // 81vh // 72vh 
+                    height: 89vh; // 81vh // 72vh 
                 }
 
                 @media (min-width: 577px) and (max-width: 767px) {
@@ -347,6 +352,12 @@ header {
                 margin-right: auto;
                 margin-top: 10px;
             }
+
+            @media (max-width: 576px) {
+                padding-top: 50px;
+                padding-bottom: 50px;
+                font-size: 38px;
+            }
         }
 
         .row {
@@ -356,7 +367,6 @@ header {
                 display: flex;
                 justify-content: center;
                 margin-bottom: 120px;
-
 
                 .article-post {
                     width: 81%;
@@ -383,6 +393,10 @@ header {
 
                             @media (max-width: 767px) {
                                 height: 200px;
+                            }
+
+                            @media (max-width: 576px) {
+                                height: 150px;
                             }
                         }
                     }
@@ -418,6 +432,12 @@ header {
                                 font-size: 25px;
                                 margin-top: 40px;
                                 margin-bottom: 25px;
+
+                                @media (max-width: 576px) {
+                                    margin-top: 20px;
+                                    margin-bottom: 10px;
+                                    font-size: 20px;
+                                }
                             }
 
                             div:nth-child(2) {
@@ -426,6 +446,10 @@ header {
                                 width: 90%;
                                 margin-left: auto;
                                 margin-right: auto;
+
+                                @media (max-width: 576px) {
+                                    display: none;
+                                }
                             }
 
                             div:nth-child(3) {
@@ -496,6 +520,10 @@ header {
                         }
                     }
                 }
+
+                @media (max-width: 576px) {
+                    margin-bottom: 60px;
+                }
             }
         }
     }
@@ -530,8 +558,8 @@ header {
             }
 
             @media (max-width: 576px) {
-                padding-top: 40px;
-                padding-bottom: 60px;
+                padding-top: 50px;
+                padding-bottom: 50px;
                 font-size: 33px;
             }
         }
@@ -560,9 +588,14 @@ header {
             }
 
             img {
-                @media (max-width: 991px) {
+                @media (min-width: 577px) and (max-width: 991px) {
                     width: 91%;
                     max-height: 300px;
+                }
+
+                @media (max-width: 576px) {
+                    width: 91%;
+                    max-height: 150px;
                 }
             }
 
@@ -607,6 +640,12 @@ header {
                 margin-left: auto;
                 margin-right: auto;
                 margin-top: 10px;
+            }
+
+            @media (max-width: 576px) {
+                padding-top: 50px;
+                padding-bottom: 50px;
+                font-size: 38px;
             }
         }
 
@@ -674,8 +713,8 @@ header {
                             }
 
                             @media (max-width: 567px) {
-                                width: 37.2%;
-                                left: 31.5%;
+                                width: 69%;
+                                left: 15.5%;
                             }
                         }
                     }
@@ -739,12 +778,15 @@ header {
                 padding-bottom: 70px;
             }
 
-            @media (max-width: 767px) {
+            @media (min-width: 577px) and (max-width: 767px) {
                 padding-top: 70px;
                 padding-bottom: 50px;
             }
-        }
 
+            @media (max-width: 576px) {
+                font-size: 33px;
+            }
+        }
 
         .row {
             padding-bottom: 100px;
@@ -820,6 +862,14 @@ header {
                         margin-left: 12%;
                     }
                 }
+
+                @media (min-width: 577px) and (max-width: 767px) {
+                    align-items: center;
+                }
+
+                @media (max-width: 576px) {
+                 align-items: center;
+                }
             }
 
             @media (max-width: 767px) {
@@ -864,9 +914,9 @@ header {
                         }
 
                         @media (max-width: 767px) {
-                            height: 150px;
-                            width: 150px;
-                            margin-top: 15px;
+                            height: 125px;
+                            width: 125px;
+                            margin-top: 20px;
                         }
                     }
                 }
@@ -904,10 +954,16 @@ header {
                         width: 42%;
                     }
 
-                    @media (max-width: 767px) {
+                    @media (min-width: 577px) and (max-width: 767px) {
                         bottom: 1px;
                         left: 23%;
                         width: 55%;
+                    }
+
+                    @media (max-width: 576px) {
+                        bottom: 1px;
+                        left: 7%;
+                        width: 86%;
                     }
                 }
 
@@ -971,6 +1027,12 @@ header {
                             margin-left: auto;
                             margin-right: auto;
                         }
+
+                        @media (max-width: 768px) {
+                            width: 80%;
+                            margin-left: auto;
+                            margin-right: auto;
+                        }
                     }
 
                     textarea {
@@ -978,6 +1040,12 @@ header {
                         background: #eee;
 
                         @media (min-width: 769px) and (max-width: 991px) {
+                            margin-left: auto;
+                            margin-right: auto;
+                        }
+
+                        @media (max-width: 768px) {
+                            width: 80%;
                             margin-left: auto;
                             margin-right: auto;
                         }
@@ -1085,7 +1153,7 @@ footer {
 
                 @media (max-width: 768px) {
                     margin-top: 10px;
-                    font-size: 18px;
+                    font-size: 11px;
                 }
             }
         }
