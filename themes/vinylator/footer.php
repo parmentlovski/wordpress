@@ -2,7 +2,7 @@
 <footer>
     <div class="container-fluid">
         <div class="row">
-            <p>Vinylator <span>|</span> Tous Droits Réservés <span>|</span> 2019</p>
+            <p>Vinylator <span>|</span>Développé par Parmentelot Bryan<span>|</span>Juin 2019</p>
         </div>
     </div>
 </footer>
