@@ -712,14 +712,14 @@ header {
                                 left: 13%;
                             }
 
-                            @media (min-width: 340px) and (max-width: 575px) {
+                            @media (min-width: 400px) and (max-width: 575px) {
                                 width: 38%;
                                 left: 30.9%;
                             }
 
-                            @media (max-width: 339px) {
-                                width: 74%;
-                                left: 13%;
+                            @media (max-width: 399px) {
+                                width: 69.6%;
+                                left: 14.9%;
                             }
 
                         }
@@ -1157,9 +1157,14 @@ footer {
                     padding: 0 20px;
                 }
 
-                @media (max-width: 768px) {
+                @media (min-width: 576px) and (max-width: 768px) {
                     margin-top: 10px;
                     font-size: 11px;
+                }
+
+                @media (max-width: 575px) {
+                    margin-top: 10px;
+                    font-size: 7px;
                 }
             }
         }

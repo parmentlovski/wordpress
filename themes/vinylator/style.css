@@ -743,17 +743,17 @@ header .navbar div ul li a:hover {
   }
 }
 
-@media (min-width: 340px) and (max-width: 575px) {
+@media (min-width: 400px) and (max-width: 575px) {
   #category .container .row article .album-content a .album-text {
     width: 38%;
     left: 30.9%;
   }
 }
 
-@media (max-width: 339px) {
+@media (max-width: 399px) {
   #category .container .row article .album-content a .album-text {
-    width: 74%;
-    left: 13%;
+    width: 69.6%;
+    left: 14.9%;
   }
 }
 
@@ -1236,10 +1236,17 @@ footer .container-fluid .row p span {
   padding: 0 20px;
 }
 
-@media (max-width: 768px) {
+@media (min-width: 576px) and (max-width: 768px) {
   footer .container-fluid .row p {
     margin-top: 10px;
     font-size: 11px;
+  }
+}
+
+@media (max-width: 575px) {
+  footer .container-fluid .row p {
+    margin-top: 10px;
+    font-size: 7px;
   }
 }
 
