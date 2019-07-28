@@ -362,7 +362,7 @@ function mon_action_album()
 
     if ($ajax_query->have_posts()) :
         while ($ajax_query->have_posts()) : $ajax_query->the_post(); ?>
-            <article class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-4">
+            <article class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-4">
                 <div class="album-content swing">
                     <a href="<?php echo the_permalink(); ?>">
                         <div class="album-image"><?php the_post_thumbnail(array(250, 250)); ?></div>

@@ -736,17 +736,24 @@ header .navbar div ul li a:hover {
   margin-top: -15px;
 }
 
-@media (min-width: 568px) and (max-width: 767px) {
+@media (min-width: 576px) and (max-width: 767px) {
   #category .container .row article .album-content a .album-text {
     width: 74%;
     left: 13%;
   }
 }
 
-@media (max-width: 567px) {
+@media (min-width: 340px) and (max-width: 575px) {
   #category .container .row article .album-content a .album-text {
-    width: 69%;
-    left: 15.5%;
+    width: 38%;
+    left: 30.9%;
+  }
+}
+
+@media (max-width: 339px) {
+  #category .container .row article .album-content a .album-text {
+    width: 74%;
+    left: 13%;
   }
 }
 

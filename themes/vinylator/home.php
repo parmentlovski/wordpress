@@ -132,7 +132,7 @@ $query = new WP_Query(array(
     <!-- DEBUT FORMULAIRE/MAP -->
     <div class="container-fluid ml-0 mr-0 pl-0 pr-0">
         <div class="row mr-0 ml-0 pl-0 pr-0">
-            <div class="form col-xs-12 col-sm-12 col-md-12 offset-lg-1 col-lg-3 offset-xl-1 col-xl-3">
+            <div class="form col-xs-12 col-sm-12 col-md-12 offset-lg-1 col-lg-5 offset-xl-1 col-xl-5">
                 <form>
                     <h3>Contact</h3>
                     <input type="text" id="name" name="name" placeholder="Votre nom">
@@ -155,7 +155,7 @@ $query = new WP_Query(array(
                 } ?>
 
             </div>
-            <div class="map col-xs-12 col-sm-12 col-md-12 offset-lg-1 offset-xl-1 col-lg-6 col-xl-6">
+            <div class="map col-xs-12 col-sm-12 col-md-12 offset-lg-1 offset-xl-1 col-lg-4 col-xl-4">
                 <!-- MAP -->
                 <h3>Nous sommes ici</h3>
                 <div id="map" class="mr-0 ml-0 pl-0 pr-0">
